@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IEB Client | IEB Games Official</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        /* Embed critical CSS to ensure fast load */
+        :root {
+            --primary: #ff0000;
+            --bg: #050505;
+        }
+
+        body {
+            background: var(--bg);
+            color: white;
+            margin: 0;
+            font-family: 'Rajdhani', sans-serif;
+            overflow-x: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="glow-bg"></div>
+
+    <nav class="navbar">
+        <div class="logo">
+            <span class="ieb-text">IEB</span><span class="client-text">CLIENT</span>
+        </div>
+        <div class="nav-links">
+            <a href="#features">ÖZELLİKLER</a>
+            <a href="#download" class="nav-dl">İNDİR</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <h1 class="main-title">BEST 1.8.9 EXPERIENCE</h1>
+            <p class="tagline">DEVELOPED BY IEB GAMES</p>
+            <div class="action-btns">
+                <a href="#download" class="main-btn">ŞİMDİ İNDİR</a>
+                <a href="https://discord.gg/yourlink" class="sub-btn">DISCORD</a>
+            </div>
+        </section>
+
+        <section id="download" class="download-card">
+            <div class="glass-container">
+                <h2>DOWNLOAD CENTER</h2>
+                <p>İndirmek istediğiniz sürümü aşağıdan seçin.</p>
+
+                <div class="custom-select" id="versionSelector">
+                    <div class="select-trigger">
+                        <span>SÜRÜM SEÇİN</span>
+                        <div class="arrow"></div>
+                    </div>
+                    <div class="options">
+                        <div class="option" data-url="YOUR_LINK_HERE_V2">IEB Client v2.0 (MODERN) - 1.8.9</div>
+                        <div class="option" data-url="YOUR_LINK_HERE_V1_9">IEB Client v1.9 - 1.8.9</div>
+                        <div class="option" data-url="YOUR_LINK_HERE_V1_8">IEB Client v1.8 - 1.8.9</div>
+                    </div>
+                </div>
+
+                <button class="final-download-btn" id="finalDownload" disabled>DOWNLOAD .JAR</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 IEB GAMES. GitHub Pages Hosted.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

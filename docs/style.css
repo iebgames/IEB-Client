@@ -1,0 +1,285 @@
+/* ==================== IEB CLIENT WEB STYLE ==================== */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary: #ff0000;
+    --primary-rgb: 255, 0, 0;
+    --accent: #ff4d4d;
+    --bg: #050505;
+    --card: rgba(20, 20, 20, 0.7);
+    --border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg);
+    color: #fff;
+    font-family: 'Rajdhani', sans-serif;
+    line-height: 1.6;
+}
+
+.glow-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, #1a0202 0%, #050505 100%);
+    z-index: -1;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 10%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    border-bottom: 1px solid var(--border);
+}
+
+.logo {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: 1.8rem;
+    letter-spacing: 3px;
+}
+
+.ieb-text {
+    color: var(--primary);
+}
+
+.client-text {
+    color: #fff;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 2rem;
+    font-weight: 700;
+    transition: 0.3s;
+    font-size: 0.9rem;
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+    text-shadow: 0 0 10px var(--primary);
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.main-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 5rem;
+    font-weight: 900;
+    text-shadow: 0 0 30px rgba(var(--primary-rgb), 0.5);
+    margin-bottom: 0.5rem;
+    letter-spacing: -2px;
+}
+
+.tagline {
+    font-size: 1.2rem;
+    color: #888;
+    letter-spacing: 8px;
+    margin-bottom: 3rem;
+}
+
+.action-btns {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.main-btn {
+    background: var(--primary);
+    color: #fff;
+    text-decoration: none;
+    padding: 1rem 2.5rem;
+    border-radius: 4px;
+    font-weight: 800;
+    font-family: 'Orbitron', sans-serif;
+    transition: 0.3s;
+    box-shadow: 0 0 20px rgba(var(--primary-rgb), 0.4);
+}
+
+.main-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 30px rgba(var(--primary-rgb), 0.7);
+}
+
+.sub-btn {
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    text-decoration: none;
+    padding: 1rem 2.5rem;
+    border-radius: 4px;
+    font-weight: 800;
+    font-family: 'Orbitron', sans-serif;
+    border: 1px solid var(--border);
+    transition: 0.3s;
+}
+
+.sub-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #fff;
+}
+
+.download-card {
+    padding: 10rem 10%;
+    display: flex;
+    justify-content: center;
+}
+
+.glass-container {
+    background: var(--card);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border);
+    padding: 4rem;
+    border-radius: 24px;
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+}
+
+.glass-container h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.glass-container p {
+    color: #888;
+    margin-bottom: 3rem;
+}
+
+/* Custom Select Dropdown */
+.custom-select {
+    position: relative;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 2rem;
+}
+
+.select-trigger {
+    background: #111;
+    border: 1px solid var(--primary);
+    padding: 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.select-trigger:hover {
+    background: #1a1a1a;
+    box-shadow: 0 0 15px rgba(var(--primary-rgb), 0.3);
+}
+
+.arrow {
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #fff;
+    transition: 0.3s;
+}
+
+.custom-select.open .arrow {
+    transform: rotate(180deg);
+}
+
+.options {
+    position: absolute;
+    top: 110%;
+    left: 0;
+    width: 100%;
+    background: #111;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    display: none;
+    z-index: 10;
+}
+
+.custom-select.open .options {
+    display: block;
+}
+
+.option {
+    padding: 1.2rem;
+    cursor: pointer;
+    border-bottom: 1px solid var(--border);
+    transition: 0.2s;
+    font-weight: 600;
+    color: #ccc;
+}
+
+.option:hover {
+    background: var(--primary);
+    color: #fff;
+}
+
+.final-download-btn {
+    width: 100%;
+    padding: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: 0.3s;
+    background: #333;
+    color: #666;
+}
+
+.final-download-btn.ready {
+    background: var(--primary);
+    color: #fff;
+    box-shadow: 0 5px 25px rgba(var(--primary-rgb), 0.5);
+}
+
+.final-download-btn.ready:hover {
+    transform: scale(1.02);
+}
+
+footer {
+    padding: 4rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #444;
+    border-top: 1px solid var(--border);
+}
+
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 3rem;
+    }
+
+    .navbar {
+        padding: 1rem 5%;
+    }
+}
