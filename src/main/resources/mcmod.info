@@ -1,0 +1,15 @@
+[
+  {
+    "modid": "iebclient",
+    "name": "IEB Client",
+    "description": "IEB Client - A powerful Minecraft 1.8.9 client by IEB Games.",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "",
+    "authorList": ["IEB Games"],
+    "credits": "IEB Games",
+    "logoFile": "logo.png",
+    "screenshots": [],
+    "dependencies": []
+  }
+]

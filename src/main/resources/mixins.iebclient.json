@@ -1,0 +1,21 @@
+{
+  "package": "dev.iebgames.iebclient.mixin",
+  "required": true,
+  "refmap": "iebgames.refmap.json",
+  "target": "@env(DEFAULT)",
+  "minVersion": "0.8",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "MixinMinecraft",
+    "MixinEntityPlayerSP",
+    "MixinNetworkManager",
+    "MixinRenderGlobal",
+    "MixinRendererLivingEntity",
+    "MixinGuiIngame",
+    "MixinEntityPlayer"
+  ],
+  "client": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
