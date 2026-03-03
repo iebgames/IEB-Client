@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Dropdown and Download Logic
     const select = document.getElementById('versionSelector');
     const trigger = select.querySelector('.select-trigger');
     const options = select.querySelectorAll('.option');
@@ -22,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Enable download button
             downloadBtn.disabled = false;
             downloadBtn.classList.add('ready');
-            downloadBtn.innerText = "İNDİR: " + text.split(' - ')[0];
+            downloadBtn.innerText = "DOWNLOAD: " + text.split(' - ')[0];
         });
     });
 
@@ -39,4 +40,60 @@ document.addEventListener('DOMContentLoaded', () => {
             select.classList.remove('open');
         }
     });
+
+    // --- Particle Animation (Fire Sparks) ---
+    const canvas = document.getElementById('particleCanvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+
+    function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    class Particle {
+        constructor() {
+            this.init();
+        }
+        init() {
+            this.x = Math.random() * canvas.width;
+            this.y = canvas.height + Math.random() * 100;
+            this.size = Math.random() * 3 + 1;
+            this.speedY = Math.random() * 3 + 1.5; // Slightly faster to reach higher
+            this.speedX = (Math.random() - 0.5) * 1.5;
+            this.alpha = 1;
+            this.decay = Math.random() * 0.005 + 0.002; // Slower decay to go higher
+        }
+        update() {
+            this.y -= this.speedY;
+            this.x += this.speedX;
+            this.alpha -= this.decay;
+            if (this.alpha <= 0) this.init();
+        }
+        draw() {
+            ctx.shadowBlur = 10;
+            ctx.shadowColor = 'rgba(255, 100, 0, 0.8)';
+            ctx.fillStyle = `rgba(255, ${Math.floor(Math.random() * 155 + 100)}, 50, ${this.alpha})`;
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.shadowBlur = 0; // Reset for performance
+        }
+    }
+
+    for (let i = 0; i < 150; i++) {
+        particles.push(new Particle());
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => {
+            p.update();
+            p.draw();
+        });
+        requestAnimationFrame(animate);
+    }
+    animate();
 });

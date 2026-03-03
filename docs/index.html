@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -9,60 +9,105 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;600;700&display=swap"
         rel="stylesheet">
-    <style>
-        /* Embed critical CSS to ensure fast load */
-        :root {
-            --primary: #ff0000;
-            --bg: #050505;
-        }
-
-        body {
-            background: var(--bg);
-            color: white;
-            margin: 0;
-            font-family: 'Rajdhani', sans-serif;
-            overflow-x: hidden;
-        }
-    </style>
 </head>
 
 <body>
     <div class="glow-bg"></div>
+    <canvas id="particleCanvas"></canvas>
 
     <nav class="navbar">
         <div class="logo">
             <span class="ieb-text">IEB</span><span class="client-text">CLIENT</span>
         </div>
         <div class="nav-links">
-            <a href="#features">ÖZELLİKLER</a>
-            <a href="#download" class="nav-dl">İNDİR</a>
+            <a href="#features">FEATURES</a>
+            <a href="#download" class="nav-dl">DOWNLOAD</a>
         </div>
     </nav>
 
     <main>
         <section class="hero">
-            <h1 class="main-title">BEST 1.8.9 EXPERIENCE</h1>
+            <h1 class="main-title">IEB CLIENT</h1>
             <p class="tagline">DEVELOPED BY IEB GAMES</p>
             <div class="action-btns">
-                <a href="#download" class="main-btn">ŞİMDİ İNDİR</a>
-                <a href="https://discord.gg/yourlink" class="sub-btn">DISCORD</a>
+                <a href="#download" class="main-btn">DOWNLOAD NOW</a>
+                <a href="https://instagram.com/ieb_software/" target="_blank" class="sub-btn">INSTAGRAM</a>
+            </div>
+        </section>
+
+        <section id="features" class="features-section">
+            <h2 class="section-title">100+ FEATURES</h2>
+            <div class="features-grid">
+                <div class="feature-category">
+                    <h3>⚔️ COMBAT</h3>
+                    <ul>
+                        <li>KillAura, MultiAura, Triggerbot</li>
+                        <li>AimAssist, Criticals, AutoClicker</li>
+                        <li>Reach, Hitbox, Velocity, Anti-Knockback</li>
+                        <li>AutoTotem, AutoHeal, AutoSoup, AutoPot</li>
+                        <li>BowAimbot, ShieldBreaker, Backtrack</li>
+                        <li>W-Tap Assist, SprintReset, Anti-Bot</li>
+                    </ul>
+                </div>
+                <div class="feature-category">
+                    <h3>🏃 MOVEMENT</h3>
+                    <ul>
+                        <li>Fly, CreativeFly, Speed, BHop</li>
+                        <li>LongJump, HighJump, Step, ReverseStep</li>
+                        <li>NoFall, Glide, Jesus, Dolphin, Spider</li>
+                        <li>Phase, SafeWalk, Sprint, Strafe</li>
+                        <li>InventoryMove, Timer, NoSlow</li>
+                    </ul>
+                </div>
+                <div class="feature-category">
+                    <h3>👁️ RENDER</h3>
+                    <ul>
+                        <li>X-Ray, Fullbright, ESP, PlayerESP</li>
+                        <li>ChestESP, StorageESP, ItemESP, MobESP</li>
+                        <li>Tracers, NameTags, BlockOverlay</li>
+                        <li>Breadcrumbs, Freecam, CameraClip</li>
+                        <li>Wallhack, HitColor, DamageIndicator</li>
+                        <li>Radar, NoHurtCam, Anti-Overlay</li>
+                    </ul>
+                </div>
+                <div class="feature-category">
+                    <h3>🧱 WORLD / PLAYER</h3>
+                    <ul>
+                        <li>Scaffold, Tower, Nuker, FastBreak</li>
+                        <li>FastPlace, AutoTool, AutoArmor, AutoFish</li>
+                        <li>AutoMine, ChestStealer, Stealer, AutoCraft</li>
+                        <li>AutoBuild, FastLadder, FastEat</li>
+                        <li>LiquidInteract, GhostHand, BlockReach</li>
+                        <li>AntiFire, AntiWeb</li>
+                    </ul>
+                </div>
+                <div class="feature-category">
+                    <h3>🤖 MISC</h3>
+                    <ul>
+                        <li>Anti-AFK, Blink, FakeLag, Disabler</li>
+                        <li>PingSpoof, ChatSpammer, ChatBypass</li>
+                        <li>AutoGG, AutoRespawn, NoRotate</li>
+                        <li>AutoQueue, MiddleClickFriend, Macro</li>
+                        <li>FriendManager, ReplayRecorder, AntiCrash</li>
+                        <li>PacketCancel, FastRespawn, NoWeather</li>
+                        <li>CapeChanger</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
         <section id="download" class="download-card">
             <div class="glass-container">
                 <h2>DOWNLOAD CENTER</h2>
-                <p>İndirmek istediğiniz sürümü aşağıdan seçin.</p>
+                <p>Select the version you want to download below.</p>
 
                 <div class="custom-select" id="versionSelector">
                     <div class="select-trigger">
-                        <span>SÜRÜM SEÇİN</span>
+                        <span>SELECT VERSION</span>
                         <div class="arrow"></div>
                     </div>
                     <div class="options">
-                        <div class="option" data-url="YOUR_LINK_HERE_V2">IEB Client v2.0 (MODERN) - 1.8.9</div>
-                        <div class="option" data-url="YOUR_LINK_HERE_V1_9">IEB Client v1.9 - 1.8.9</div>
-                        <div class="option" data-url="YOUR_LINK_HERE_V1_8">IEB Client v1.8 - 1.8.9</div>
+                        <div class="option" data-url="YOUR_LINK_HERE_V2">IEB Client Beta v3.42 (LATEST) - 1.8.9</div>
                     </div>
                 </div>
 
@@ -72,7 +117,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 IEB GAMES. GitHub Pages Hosted.</p>
+        <p>&copy; 2026 IEB GAMES.</p>
     </footer>
 
     <script src="script.js"></script>
