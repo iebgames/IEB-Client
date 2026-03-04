@@ -96,4 +96,25 @@ document.addEventListener('DOMContentLoaded', () => {
         requestAnimationFrame(animate);
     }
     animate();
+
+    // Fetch real download count from GitHub API
+    fetch('https://api.github.com/repos/iebgames/IEB-Client/releases')
+        .then(response => response.json())
+        .then(data => {
+            let totalDownloads = 0;
+            if (Array.isArray(data)) {
+                data.forEach(release => {
+                    if (release.assets) {
+                        release.assets.forEach(asset => {
+                            totalDownloads += asset.download_count;
+                        });
+                    }
+                });
+                document.getElementById('dl-number').innerText = totalDownloads.toLocaleString();
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching download count:', error);
+            document.getElementById('dl-number').innerText = "Many"; // Fallback
+        });
 });
