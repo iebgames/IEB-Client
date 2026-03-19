@@ -8,7 +8,7 @@
     "url": "",
     "authorList": ["IEB Games"],
     "credits": "IEB Games",
-    "logoFile": "logo.png",
+    "logoFile": "assets/iebclient/logo.png",
     "screenshots": [],
     "dependencies": []
   }

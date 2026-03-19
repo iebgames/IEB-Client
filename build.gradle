@@ -11,7 +11,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.1-SNAPSHOT'
         classpath 'org.spongepowered:mixingradle:0.6-SNAPSHOT'
     }
 }
@@ -19,9 +19,9 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle.forge'
 apply plugin: 'org.spongepowered.mixin'
 
-version = "1.0"
+version = "v6.2.30-FIXED.94.1.1"
 group = "dev.iebgames.iebclient"
-archivesBaseName = "IEBClient"
+archivesBaseName = "IEB-Client"
 
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
@@ -44,11 +44,25 @@ repositories {
     }
 }
 
+configurations {
+    embed
+    compile.extendsFrom(embed)
+}
+
 dependencies {
-    compile('org.spongepowered:mixin:0.7.11-SNAPSHOT') {
+    // Add tools.jar from the Adoptium JDK to allow compilation on JRE
+    compile files('C:/PROGRA~1/ECLIPS~1/JDK-80~1.8-H/lib/tools.jar')
+    embed('org.spongepowered:mixin:0.7.11-SNAPSHOT') {
         exclude module: 'launchwrapper'
         exclude module: 'guava'
+        exclude module: 'gson'
+        exclude module: 'commons-io'
     }
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+    options.fork = false // Use the Gradle JVM (JRE 8) directly
 }
 
 processResources {
@@ -65,6 +79,9 @@ processResources {
 }
 
 jar {
+    from {
+        configurations.embed.collect { it.isDirectory() ? it : zipTree(it) }
+    }
     manifest.attributes(
         "MixinConfigs": "mixins.iebclient.json",
         "TweakClass": "org.spongepowered.asm.launch.MixinTweaker",

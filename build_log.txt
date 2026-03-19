@@ -1,0 +1,102 @@
+========================================
+IEB CLIENT - NUCLEAR BUILDER (DEBUG)
+========================================
+[INFO] Running compileJava...
+To honour the JVM settings for this build a new JVM will be forked. Please consider using the daemon: https://docs.gradle.org/4.10.3/userguide/gradle_daemon.html.
+Daemon will be stopped at the end of the build stopping after processing
+
+> Configure project :
+WARNING: You are using an unsupported version of ForgeGradle.
+Please consider upgrading to ForgeGradle 5 and helping in the efforts to get old versions working on the modern toolchain.
+See https://gist.github.com/TheCurle/fe7ad3ede188cbdd15c235cc75d52d4a for more info on contributing.
+#################################################
+         ForgeGradle 2.1.3-g6a7c715        
+  https://github.com/MinecraftForge/ForgeGradle  
+#################################################
+               Powered by MCP unknown               
+             http://modcoderpack.com             
+         by: Searge, ProfMobius, Fesh0r,         
+         R4wk, ZeuX, IngisKahn, bspkrs           
+#################################################
+
+> Task :deobfCompileDummyTask
+> Task :getVersionJson
+> Task :extractUserdev UP-TO-DATE
+> Task :downloadClient SKIPPED
+> Task :downloadServer SKIPPED
+> Task :splitServerJar SKIPPED
+> Task :mergeJars SKIPPED
+> Task :applyBinaryPatches SKIPPED
+> Task :deobfProvidedDummyTask
+> Task :extractDependencyATs SKIPPED
+> Task :extractMcpData SKIPPED
+> Task :extractMcpMappings SKIPPED
+> Task :genSrgs SKIPPED
+> Task :deobfMcMCP SKIPPED
+> Task :sourceApiJava UP-TO-DATE
+> Task :compileApiJava NO-SOURCE
+> Task :processApiResources NO-SOURCE
+> Task :apiClasses UP-TO-DATE
+> Task :sourceMainJava UP-TO-DATE
+
+> Task :compileJava
+Potential refmap conflict. Duplicate refmap name mixins.iebclient.refmap.json specified for sourceSet main, already defined for sourceSet main
+Note: SpongePowered MIXIN Annotation Processor Version=0.7.11
+Note: ObfuscationServiceMCP supports type: "searge"
+Note: ObfuscationServiceMCP supports type: "notch"
+Note: Loading searge mappings from C:\Users\?klim Can\.gradle\caches\minecraft\de\oceanlabs\mcp\mcp_stable\22\srgs\mcp-srg.srg
+Note: Loading notch mappings from C:\Users\?klim Can\.gradle\caches\minecraft\de\oceanlabs\mcp\mcp_stable\22\srgs\mcp-notch.srg
+C:\Users\?klim Can\Downloads\ieb_client\build\sources\main\java\dev\iebgames\iebclient\mixin\MixinRenderGlobal.java:17: warning: Unable to determine signature for @Inject target method
+    @Inject(method = "shouldSideBeRendered", at = @At("HEAD"), cancellable = true)
+    ^
+Note: Writing refmap to C:\Users\?klim Can\Downloads\ieb_client\build\tmp\compileJava\compileJava-refmap.json
+Note: Writing refmap to C:\Users\?klim Can\Downloads\ieb_client\build\tmp\compileJava\compileJava-refmap.json
+Note: Writing searge output SRGs to C:\Users\?klim Can\Downloads\ieb_client\build\tmp\compileJava\mcp-srg.srg
+Note: Writing notch output SRGs to C:\Users\?klim Can\Downloads\ieb_client\build\tmp\compileJava\mcp-notch.srg
+C:\Users\?klim Can\Downloads\ieb_client\build\sources\main\java\dev\iebgames\iebclient\IEBClient.java:50: error: cannot find symbol
+    public void onKey(EventKey e) {
+                      ^
+  symbol:   class EventKey
+  location: class IEBClient
+C:\Users\?klim Can\Downloads\ieb_client\build\sources\main\java\dev\iebgames\iebclient\IEBClient.java:57: error: cannot find symbol
+    public void onRender2D(EventRender2D e) {
+                           ^
+  symbol:   class EventRender2D
+  location: class IEBClient
+C:\Users\?klim Can\Downloads\ieb_client\build\sources\main\java\dev\iebgames\iebclient\IEBClient.java:49: error: cannot find symbol
+    @EventHook
+     ^
+  symbol:   class EventHook
+  location: class IEBClient
+C:\Users\?klim Can\Downloads\ieb_client\build\sources\main\java\dev\iebgames\iebclient\IEBClient.java:56: error: cannot find symbol
+    @EventHook
+     ^
+  symbol:   class EventHook
+  location: class IEBClient
+Note: Writing refmap to C:\Users\?klim Can\Downloads\ieb_client\build\tmp\compileJava\compileJava-refmap.json
+Note: Writing refmap to C:\Users\?klim Can\Downloads\ieb_client\build\tmp\compileJava\compileJava-refmap.json
+Note: Writing searge output SRGs to C:\Users\?klim Can\Downloads\ieb_client\build\tmp\compileJava\mcp-srg.srg
+Note: Writing notch output SRGs to C:\Users\?klim Can\Downloads\ieb_client\build\tmp\compileJava\mcp-notch.srg
+4 errors
+1 warning
+
+> Task :compileJava FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileJava'.
+> Compilation failed; see the compiler error output for details.
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output. Run with --scan to get full insights.
+
+* Get more help at https://help.gradle.org
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 5.0.
+Use '--warning-mode all' to show the individual deprecation warnings.
+See https://docs.gradle.org/4.10.3/userguide/command_line_interface.html#sec:command_line_warnings
+
+BU?LD FAILED in 23s
+7 actionable tasks: 4 executed, 3 up-to-date
+Press any key to continue . . . 

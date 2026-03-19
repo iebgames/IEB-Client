@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IEB Client | Official Website</title>
+    <link rel="stylesheet" href="style_web.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-animation" id="bgCanvas"></div>
+
+    <nav class="navbar">
+        <div class="logo">
+            <img src="logo.png" alt="IEB Logo">
+            <span>IEB CLIENT</span>
+        </div>
+        <div class="nav-links">
+            <a href="#features">Özellikler</a>
+            <a href="#download" class="download-btn-nav">İndir</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1 class="glitch" data-text="IEB CLIENT">IEB CLIENT</h1>
+        <p class="subtitle">Minecraft 1.8.9 İçin En Gelişmiş Hacked Client</p>
+        <div class="hero-btns">
+            <button class="btn primary" onclick="scrollToDownload()">HEMEN İNDİR</button>
+            <button class="btn secondary">DİSCORD KATIL</button>
+        </div>
+    </header>
+
+    <section id="download" class="download-section">
+        <div class="glass-card">
+            <h2>İndirme Merkezi</h2>
+            <p>IEB Client'ın tüm sürümlerine buradan ulaşabilirsiniz.</p>
+
+            <div class="download-dropdown">
+                <button class="main-download-btn" id="dropdownBtn">
+                    <span>SÜRÜM SEÇİN</span>
+                    <svg viewBox="0 0 24 24" width="24" height="24">
+                        <path d="M7 10l5 5 5-5z" fill="white" />
+                    </svg>
+                </button>
+                <div class="dropdown-content" id="dropdownList">
+                    <a href="https://example.com/v2.0" class="version-item">
+                        <span class="v-name">IEB Client v2.0 (Latest)</span>
+                        <span class="v-tag">1.8.9 - Forge</span>
+                    </a>
+                    <a href="https://example.com/v1.9" class="version-item">
+                        <span class="v-name">IEB Client v1.9</span>
+                        <span class="v-tag">1.8.9 - Forge</span>
+                    </a>
+                    <a href="https://example.com/v1.8" class="version-item">
+                        <span class="v-name">IEB Client v1.8</span>
+                        <span class="v-tag">1.8.9 - Forge</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 IEB GAMES. Tüm hakları saklıdır.</p>
+    </footer>
+
+    <script src="script_web.js"></script>
+</body>
+
+</html>

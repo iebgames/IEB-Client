@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IEB Client – by IEB Games</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- Minecraft-like background -->
+  <canvas id="bgCanvas"></canvas>
+
+  <!-- Watermark (always visible) -->
+  <div id="watermark">
+    <span class="wm-name">IEB Client</span>
+    <span class="wm-version">v2.0</span>
+    <span class="wm-dev">by IEB Games</span>
+  </div>
+
+  <!-- Active modules HUD -->
+  <div id="activeHUD"></div>
+
+  <!-- Tab hint -->
+  <div id="tabHint">TAB tuşuna bas → Menü aç</div>
+
+  <!-- MAIN MENU -->
+  <div id="menu" class="hidden">
+    <!-- Draggable header -->
+    <div id="menuHeader">
+      <div class="logo-area">
+        <div class="logo-icon">⚔</div>
+        <div class="logo-text">
+          <span class="logo-main">IEB Client</span>
+          <span class="logo-sub">by IEB Games • v2.0</span>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button id="closeBtn" title="Kapat (TAB)">✕</button>
+      </div>
+    </div>
+
+    <!-- Category tabs -->
+    <div id="catTabs">
+      <button class="cat-btn active" data-cat="combat">⚔️ Combat</button>
+      <button class="cat-btn" data-cat="movement">🏃 Movement</button>
+      <button class="cat-btn" data-cat="render">👀 Render</button>
+      <button class="cat-btn" data-cat="misc">🤖 Misc</button>
+    </div>
+
+    <!-- Module grid -->
+    <div id="moduleArea">
+
+      <!-- COMBAT -->
+      <div class="cat-panel active" id="cat-combat">
+        <div class="module-grid">
+          <div class="module" data-mod="Killaura" data-key="K">
+            <div class="mod-header">
+              <div class="mod-icon">🗡️</div>
+              <div class="mod-info"><span class="mod-name">Killaura</span><span class="mod-desc">Otomatik saldırı</span></div>
+              <label class="toggle"><input type="checkbox" /><span class="slider"></span></label>
+            </div>
+            <div class="mod-settings">
+              <div class="setting-row"><span>Range</span><input type="range" min="3" max="6" step="0.1" value="4" /><span class="val">4.0</span></div>
+              <div class="setting-row"><span>CPS</span><input type="range" min="1" max="20" step="1" value="10" /><span class="val">10</span></div>
+            </div>
+          </div>
+          <div class="module" data-mod="Triggerbot" data-key="T">
+            <div class="mod-header">
+              <div class="mod-icon">🎯</div>
+              <div class="mod-info"><span class="mod-name">Triggerbot</span><span class="mod-desc">Hedefte otomatik tıklama</span></div>
+              <label class="toggle"><input type="checkbox" /><span class="slider"></span></label>
+            </div>
+            <div class="mod-settings">
+              <div class="setting-row"><span>Delay (ms)</span><input type="range" min="50" max="500" step="10" value="100" /><span class="val">100</span></div>
+            </div>
+          </div>
+          <div class="module" data-mod="Criticals" data-key="C">
+            <div class="mod-header">
+              <div class="mod-icon">💥</div>
+              <div class="mod-info"><span class="mod-name">Criticals</span><span class="mod-desc">Her vuruş kritik</span></div>
+              <label class="toggle"><input type="checkbox" /><span class="slider"></span></label>
+            </div>
+            <div class="mod-settings">
+              <div class="setting-row"><span>Mode</span>
+                <select><option>Packet</option><option>Jump</option></select>
+              </div>
+            </div>
+          </div>
+          <div class="module" data-mod="Auto Clicker" data-key="A">
+            <div class="mod-header">
+              <div class="mod-icon">🖱️</div>
+              <div class="mod-info"><span class="mod-name">Auto Clicker</span><span class="mod-desc">Otomatik tıklama</span></div>
+              <label class="toggle"><input type="checkbox" /><span class="slider"></span></label>
+            </div>
+            <div class="mod-settings">
+              <div class="setting-row"><span>CPS</span><input type="range" min="1" max="20" step="1" value="12" /><span class="val">12</span></div>
+            </div>
+          </div>
+          <div class="module" data-mod="Reach" data-key="R">
+            <div class="mod-header">
+              <div class="mod-icon">📏</div>
+              <div class="mod-info"><span class="mod-name">Reach</span><span class="mod-desc">Uzaktan vurma</span></div>
+              <label class="toggle"><input type="checkbox" /><span class="slider"></span></label>
+            </div>
+            <div class="mod-settings">
+              <div class="setting-row"><span>Range</span><input type="range" min="3" max="20" step="0.1" value="10" /><span class="val">10.0</span></div>
+            </div>
+          </div>
+          <div class="module" data-mod="Velocity" data-key="V">
+            <div class="mod-header">
+              <div class="mod-icon">💨</div>
+              <div class="mod-info"><span class="mod-name">Velocity</span><span class="mod-desc">Knockback azaltma</span></div>
+              <label class="toggle"><input type="checkbox" /><span class="slider"></span></label>
+            </div>
+            <div class="mod-settings">
+              <div class="setting-row"><span>Horizontal %</span><input type="range" min="0" max="100" step="1" value="40" /><span class="val">40</span></div>
+              <div class="setting-row"><span>Vertical %</span><input type="range" min="0" max="100" step="1" value="60" /><span class="val">60</span></div>
+            </div>
+          </div>
+          <div class="module" data-mod="Block Reach" data-key=",">
+            <div class="mod-header">
+              <div class="mod-icon">🧱</div>
+              <div class="mod-info"><span class="mod-name">Block Reach</span><span class="mod-desc">Uzak bloklarla etkileşim</span></div>
+              <label class="toggle"><input type="checkbox" /><span class="slider"></span></label>
+            </div>
+            <div class="mod-settings">
+              <div class="setting-row"><span>Range</span><input type="range" min="3" max="20" step="0.1" value="10" /><span class="val">10.0</span></div>
+            </div>
+          </div>
+          <div class="module" data-mod="Aim Assist" data-key="M">
+            <div class="mod-header">
+              <div class="mod-icon">🎮</div>
+              <div class="mod-info"><span class="mod-name">Aim Assist</span><span class="mod-desc">Nişan yardımı</span></div>
+              <label class="toggle"><input type="checkbox" /><span class="slider"></span></label>
+            </div>
+            <div class="mod-settings">
+              <div class="setting-row"><span>Speed</span><input type="range" min="1" max="10" step="0.5" value="3" /><span class="val">3.0</span></div>
+            </div>
+          </div>
+          <div class="module" data-mod="Anti-Knockback" data-key="N">
+            <div class="mod-header">
+              <div class="mod-icon">🛡️</div>
+              <div class="mod-info"><span class="mod-name">Anti-Knockback</span><span class="mod-desc">Knockback engelleme</span></div>
+              <label class="toggle"><input type="checkbox" /><span class="slider"></span></label>
+            </div>
+            <div class="mod-settings"></div>
+          </div>
+          <div class="module" data-mod="Hitbox" data-key="H">
+            <div class="mod-header">
+              <div class="mod-icon">📦</div>
+              <div class="mod-info"><span class="mod-name">Hitbox</span><span class="mod-desc">Hitbox genişletme</span></div>
+              <label class="toggle"><input type="checkbox" /><span class="slider"></span></label>
+            </div>
+            <div class="mod-settings">
+              <div class="setting-row"><span>Size</span><input type="range" min="0.1" max="1" step="0.05" value="0.2" /><span class="val">0.2</span></div>
+            </div>
+          </div>
+          <div class="module" data-mod="Auto Totem" data-key="O">
+            <div class="mod-header">
+              <div class="mod-icon">🪄</div>
+              <div class="mod-info"><span class="mod-name">Auto Totem</span><span class="mod-desc">Totem otomatik kuş</span></div>
+              <label class="toggle"><input type="checkbox" /><span class="slider"></span></label>
+            </div>
+            <div class="mod-settings">
+              <div class="setting-row"><span>HP Threshold</span><input type="range" min="1" max="10" step="1" value="6" /><span class="val">6</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MOVEMENT -->
+      <div class="cat-panel" id="cat-movement">
+        <div class="module-grid">
+          <div class="module" data-mod="Fly" data-key="F">
+            <div class="mod-header">
+              <div class="mod-icon">🦅</div>
+              <div class="mod-info"><span class="mod-name">Fly</span><span class="mod-desc">Uçma modu</span></div>
+              <label class="toggle"><input type="checkbox" /><span class="slider"></span></label>
+            </div>
+            <div class="mod-settings">
+              <div class="setting-row"><span>Speed</span><input type="range" min="0.5" max="5" step="0.1" value="1.5" /><span class="val">1.5</span></div>
+              <div class="setting-row"><span>Mode</span><select><option>Vanilla</option><option>Packet</option><option>Creative</option></select></div>
+            </div>
+          </div>
+          <div class="module" data-mod="Speed" data-key="S">
+            <div class="mod-header">
+              <div class="mod-icon">⚡</div>
+              <div class="mod-info"><span class="mod-name">Speed</span><span class="mod-desc">Hız arttırma</span></div>
+              <label class="toggle"><input type="checkbox" /><span class="slider"></span></label>
+            </div>
+            <div class="mod-settings">
+              <div class="setting-row"><span>Multiplier</span><input type="range" min="1" max="5" step="0.1" value="1.8" /><span class="val">1.8</span></div>
+            </div>
+          </div>
+          <div class="module" data-mod="Sprint" data-key="P">
+            <div class="mod-header">
+              <div class="mod-icon">🏃</div>
+              <div class="mod-info"><span class="mod-name">Sprint</span><span class="mod-desc">Otomatik sprint</span></div>
+              <label class="toggle"><input type="checkbox" /><span class="slider"></span></label>
+            </div>
+            <div class="mod-settings">
+              <div class="setting-row"><span>Mode</span><select><option>Omni</option><option>Legit</option></select></div>
+            </div>
+          </div>
+          <div class="module" data-mod="Bunny Hop" data-key="B">
+            <div class="mod-header">
+              <div class="mod-icon">🐰</div>
+              <div class="mod-info"><span class="mod-name">Bunny Hop</span><span class="mod-desc">Otomatik atlatma</span></div>
+              <label class="toggle"><input type="checkbox" /><span class="slider"></span></label>
+            </div>
+            <div class="mod-settings"></div>
+          </div>
+          <div class="module" data-mod="Long Jump" data-key="J">
+            <div class="mod-header">
+              <div class="mod-icon">↗️</div>
+              <div class="mod-info"><span class="mod-name">Long Jump</span><span class="mod-desc">Uzun atlama</span></div>
+              <label class="toggle"><input type="checkbox" /><span class="slider"></span></label>
+            </div>
+            <div class="mod-settings"></div>
+          </div>
+          <div class="module" data-mod="Step" data-key="E">
+            <div class="mod-header">
+              <div class="mod-icon">🪜</div>
+              <div class="mod-info"><span class="mod-name">Step</span><span class="mod-desc">Bloklara otomatik çıkma</span></div>
+              <label class="toggle"><input type="checkbox" /><span class="slider"></span></label>
+            </div>
+            <div class="mod-settings">
+              <div class="setting-row"><span>Height</span><input type="range" min="1" max="3" step="0.5" value="1" /><span class="val">1.0</span></div>
+            </div>
+          </div>
+          <div class="module" data-mod="NoFall" data-key="Q">
+            <div class="mod-header">
+              <div class="mod-icon">🪂</div>
+              <div class="mod-info"><span class="mod-name">NoFall</span><span class="mod-desc">Düşme hasarı engelleme</span></div>
+              <label class="toggle"><input type="checkbox" /><span class="slider"></span></label>
+            </div>
+            <div class="mod-settings">
+              <div class="setting-row"><span>Mode</span><select><option>Packet</option><option>Vanilla</option></select></div>
+            </div>
+          </div>
+          <div class="module" data-mod="Glide" data-key="G">
+            <div class="mod-header">
+              <div class="mod-icon">🪁</div>
+              <div class="mod-info"><span class="mod-name">Glide</span><span class="mod-desc">Havada süzülme</span></div>
+              <label class="toggle"><input type="checkbox" /><span class="slider"></span></label>
+            </div>
+            <div class="mod-settings">
+              <div class="setting-row"><span>Fall Speed</span><input type="range" min="0.01" max="0.1" step="0.01" value="0.03" /><span class="val">0.03</span></div>
+            </div>
+          </div>
+          <div class="module" data-mod="Jesus" data-key="U">
+            <div class="mod-header">
+              <div class="mod-icon">💧</div>
+              <div class="mod-info"><span class="mod-name">Jesus</span><span class="mod-desc">Su üstünde yürüme</span></div>
+              <label class="toggle"><input type="checkbox" /><span class="slider"></span></label>
+            </div>
+            <div class="mod-settings"></div>
+          </div>
+          <div class="module" data-mod="Spider" data-key="I">
+            <div class="mod-header">
+              <div class="mod-icon">🕷️</div>
+              <div class="mod-info"><span class="mod-name">Spider</span><span class="mod-desc">Duvara tırmanma</span></div>
+              <label class="toggle"><input type="checkbox" /><span class="slider"></span></label>
+            </div>
+            <div class="mod-settings">
+              <div class="setting-row"><span>Speed</span><input type="range" min="0.1" max="1" step="0.1" value="0.3" /><span class="val">0.3</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RENDER -->
+      <div class="cat-panel" id="cat-render">
+        <div class="module-grid">
+          <div class="module" data-mod="X-Ray" data-key="X">
+            <div class="mod-header">
+              <div class="mod-icon">💎</div>
+              <div class="mod-info"><span class="mod-name">X-Ray</span><span class="mod-desc">Blok içini görme</span></div>
+              <label class="toggle"><input type="checkbox" /><span class="slider"></span></label>
+            </div>
+            <div class="mod-settings">
+              <div class="setting-row"><span>Diamonds</span><input type="checkbox" checked /><span>Açık</span></div>
+            </div>
+          </div>
+          <div class="module" data-mod="Fullbright" data-key="L">
+            <div class="mod-header">
+              <div class="mod-icon">☀️</div>
+              <div class="mod-info"><span class="mod-name">Fullbright</span><span class="mod-desc">Tam parlaklık</span></div>
+              <label class="toggle"><input type="checkbox" /><span class="slider"></span></label>
+            </div>
+            <div class="mod-settings"></div>
+          </div>
+          <div class="module" data-mod="ESP" data-key="W">
+            <div class="mod-header">
+              <div class="mod-icon">👁️</div>
+              <div class="mod-info"><span class="mod-name">ESP</span><span class="mod-desc">Oyuncu/Göğüs görme</span></div>
+              <label class="toggle"><input type="checkbox" /><span class="slider"></span></label>
+            </div>
+            <div class="mod-settings">
+              <div class="setting-row"><span>Color</span><input type="color" value="#ff4444" /></div>
+              <div class="setting-row"><span>Mode</span><select><option>Box</option><option>Outline</option><option>Glow</option></select></div>
+            </div>
+          </div>
+          <div class="module" data-mod="Tracers" data-key="Y">
+            <div class="mod-header">
+              <div class="mod-icon">📡</div>
+              <div class="mod-info"><span class="mod-name">Tracers</span><span class="mod-desc">Çizgi gösterme</span></div>
+              <label class="toggle"><input type="checkbox" /><span class="slider"></span></label>
+            </div>
+            <div class="mod-settings">
+              <div class="setting-row"><span>Color</span><input type="color" value="#00ffaa" /></div>
+            </div>
+          </div>
+          <div class="module" data-mod="NameTags" data-key="Z">
+            <div class="mod-header">
+              <div class="mod-icon">🏷️</div>
+              <div class="mod-info"><span class="mod-name">NameTags</span><span class="mod-desc">İsim büyütme</span></div>
+              <label class="toggle"><input type="checkbox" /><span class="slider"></span></label>
+            </div>
+            <div class="mod-settings">
+              <div class="setting-row"><span>Scale</span><input type="range" min="1" max="5" step="0.5" value="2" /><span class="val">2.0</span></div>
+            </div>
+          </div>
+          <div class="module" data-mod="Chest ESP" data-key="D">
+            <div class="mod-header">
+              <div class="mod-icon">📦</div>
+              <div class="mod-info"><span class="mod-name">Chest ESP</span><span class="mod-desc">Sandık görme</span></div>
+              <label class="toggle"><input type="checkbox" /><span class="slider"></span></label>
+            </div>
+            <div class="mod-settings">
+              <div class="setting-row"><span>Color</span><input type="color" value="#ffaa00" /></div>
+            </div>
+          </div>
+          <div class="module" data-mod="Item ESP" data-key="1">
+            <div class="mod-header">
+              <div class="mod-icon">✨</div>
+              <div class="mod-info"><span class="mod-name">Item ESP</span><span class="mod-desc">Eşya görme</span></div>
+              <label class="toggle"><input type="checkbox" /><span class="slider"></span></label>
+            </div>
+            <div class="mod-settings"></div>
+          </div>
+          <div class="module" data-mod="Storage ESP" data-key="2">
+            <div class="mod-header">
+              <div class="mod-icon">🗄️</div>
+              <div class="mod-info"><span class="mod-name">Storage ESP</span><span class="mod-desc">Depolama görme</span></div>
+              <label class="toggle"><input type="checkbox" /><span class="slider"></span></label>
+            </div>
+            <div class="mod-settings"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MISC -->
+      <div class="cat-panel" id="cat-misc">
+        <div class="module-grid">
+          <div class="module" data-mod="Auto Armor" data-key="3">
+            <div class="mod-header">
+              <div class="mod-icon">🥋</div>
+              <div class="mod-info"><span class="mod-name">Auto Armor</span><span class="mod-desc">Zırh otomatik giy</span></div>
+              <label class="toggle"><input type="checkbox" /><span class="slider"></span></label>
+            </div>
+            <div class="mod-settings"></div>
+          </div>
+          <div class="module" data-mod="Auto Tool" data-key="4">
+            <div class="mod-header">
+              <div class="mod-icon">🔧</div>
+              <div class="mod-info"><span class="mod-name">Auto Tool</span><span class="mod-desc">En iyi aleti seç</span></div>
+              <label class="toggle"><input type="checkbox" /><span class="slider"></span></label>
+            </div>
+            <div class="mod-settings"></div>
+          </div>
+          <div class="module" data-mod="Scaffold" data-key="5">
+            <div class="mod-header">
+              <div class="mod-icon">🏗️</div>
+              <div class="mod-info"><span class="mod-name">Scaffold</span><span class="mod-desc">Otomatik altına blok koy</span></div>
+              <label class="toggle"><input type="checkbox" /><span class="slider"></span></label>
+            </div>
+            <div class="mod-settings">
+              <div class="setting-row"><span>Delay</span><input type="range" min="0" max="5" step="1" value="0" /><span class="val">0</span></div>
+            </div>
+          </div>
+          <div class="module" data-mod="Nuker" data-key="6">
+            <div class="mod-header">
+              <div class="mod-icon">💣</div>
+              <div class="mod-info"><span class="mod-name">Nuker</span><span class="mod-desc">Otomatik blok kırma</span></div>
+              <label class="toggle"><input type="checkbox" /><span class="slider"></span></label>
+            </div>
+            <div class="mod-settings">
+              <div class="setting-row"><span>Range</span><input type="range" min="1" max="6" step="0.5" value="3" /><span class="val">3.0</span></div>
+            </div>
+          </div>
+          <div class="module" data-mod="Fast Place" data-key="7">
+            <div class="mod-header">
+              <div class="mod-icon">🚀</div>
+              <div class="mod-info"><span class="mod-name">Fast Place</span><span class="mod-desc">Hızlı blok koyma</span></div>
+              <label class="toggle"><input type="checkbox" /><span class="slider"></span></label>
+            </div>
+            <div class="mod-settings"></div>
+          </div>
+          <div class="module" data-mod="Fast Break" data-key="8">
+            <div class="mod-header">
+              <div class="mod-icon">⛏️</div>
+              <div class="mod-info"><span class="mod-name">Fast Break</span><span class="mod-desc">Hızlı blok kırma</span></div>
+              <label class="toggle"><input type="checkbox" /><span class="slider"></span></label>
+            </div>
+            <div class="mod-settings"></div>
+          </div>
+          <div class="module" data-mod="Inventory Move" data-key="9">
+            <div class="mod-header">
+              <div class="mod-icon">🎒</div>
+              <div class="mod-info"><span class="mod-name">Inventory Move</span><span class="mod-desc">Envanterde hareket</span></div>
+              <label class="toggle"><input type="checkbox" /><span class="slider"></span></label>
+            </div>
+            <div class="mod-settings"></div>
+          </div>
+          <div class="module" data-mod="Anti-AFK" data-key="0">
+            <div class="mod-header">
+              <div class="mod-icon">🤖</div>
+              <div class="mod-info"><span class="mod-name">Anti-AFK</span><span class="mod-desc">AFK önleme</span></div>
+              <label class="toggle"><input type="checkbox" /><span class="slider"></span></label>
+            </div>
+            <div class="mod-settings">
+              <div class="setting-row"><span>Interval (s)</span><input type="range" min="10" max="120" step="5" value="30" /><span class="val">30</span></div>
+            </div>
+          </div>
+          <div class="module" data-mod="Freecam" data-key="-">
+            <div class="mod-header">
+              <div class="mod-icon">📷</div>
+              <div class="mod-info"><span class="mod-name">Freecam</span><span class="mod-desc">Serbest kamera</span></div>
+              <label class="toggle"><input type="checkbox" /><span class="slider"></span></label>
+            </div>
+            <div class="mod-settings">
+              <div class="setting-row"><span>Speed</span><input type="range" min="0.5" max="5" step="0.1" value="1" /><span class="val">1.0</span></div>
+            </div>
+          </div>
+          <div class="module" data-mod="Blink" data-key="=">
+            <div class="mod-header">
+              <div class="mod-icon">👁️‍🗨️</div>
+              <div class="mod-info"><span class="mod-name">Blink</span><span class="mod-desc">Paket geciktirme</span></div>
+              <label class="toggle"><input type="checkbox" /><span class="slider"></span></label>
+            </div>
+            <div class="mod-settings">
+              <div class="setting-row"><span>Max Buffer</span><input type="range" min="10" max="200" step="10" value="60" /><span class="val">60</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end moduleArea -->
+
+    <!-- Footer -->
+    <div id="menuFooter">
+      <span>🟢 Online</span>
+      <span>IEB Client v2.0</span>
+      <span id="clock"></span>
+    </div>
+  </div>
+
+  <!-- Notification toast -->
+  <div id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

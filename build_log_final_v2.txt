@@ -1,0 +1,29 @@
+========================================
+IEB CLIENT - NUCLEAR BUILDER (DEBUG)
+========================================
+[INFO] Running build...
+To honour the JVM settings for this build a new JVM will be forked. Please consider using the daemon: https://docs.gradle.org/4.10.3/userguide/gradle_daemon.html.
+Daemon will be stopped at the end of the build stopping after processing
+
+FAILURE: Build failed with an exception.
+
+* Where:
+Build file 'C:\Users\?klim Can\Downloads\ieb_client\build.gradle' line: 22
+
+* What went wrong:
+Could not compile build file 'C:\Users\?klim Can\Downloads\ieb_client\build.gradle'.
+> startup failed:
+  build file 'C:\Users\?klim Can\Downloads\ieb_client\build.gradle': 22: expecting anything but ''\n''; got it anyway @ line 22, column 16.
+     version = "3.56
+                    ^
+  
+  1 error
+
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output. Run with --scan to get full insights.
+
+* Get more help at https://help.gradle.org
+
+BU?LD FAILED in 4s
+Press any key to continue . . . 

@@ -76,6 +76,20 @@ body {
     color: #fff;
 }
 
+.version-badge {
+    background: var(--primary);
+    color: #fff;
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-family: 'Rajdhani', sans-serif;
+    vertical-align: middle;
+    margin-left: 10px;
+    letter-spacing: 0;
+    box-shadow: 0 0 10px rgba(var(--primary-rgb), 0.5);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
 .nav-links a {
     color: #fff;
     text-decoration: none;
@@ -312,6 +326,27 @@ footer {
     border-radius: 16px;
     border: 1px solid var(--border);
     transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.scripting-card {
+    border-color: var(--primary);
+    background: linear-gradient(135deg, rgba(255,0,0,0.05) 0%, rgba(0,0,0,0) 100%);
+}
+
+.new-badge {
+    position: absolute;
+    top: 10px;
+    right: -25px;
+    background: var(--primary);
+    color: #fff;
+    font-size: 0.6rem;
+    font-weight: 900;
+    padding: 5px 30px;
+    transform: rotate(45deg);
+    font-family: 'Orbitron', sans-serif;
+    box-shadow: 0 0 10px rgba(var(--primary-rgb), 0.5);
 }
 
 .feature-category:hover {

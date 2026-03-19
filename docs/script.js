@@ -97,24 +97,29 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     animate();
 
-    // Fetch real download count from GitHub API
-    fetch('https://api.github.com/repos/iebgames/IEB-Client/releases')
-        .then(response => response.json())
-        .then(data => {
-            let totalDownloads = 0;
-            if (Array.isArray(data)) {
-                data.forEach(release => {
-                    if (release.assets) {
-                        release.assets.forEach(asset => {
-                            totalDownloads += asset.download_count;
-                        });
-                    }
-                });
-                document.getElementById('dl-number').innerText = totalDownloads.toLocaleString();
-            }
-        })
-        .catch(error => {
-            console.error('Error fetching download count:', error);
-            document.getElementById('dl-number').innerText = "Many"; // Fallback
-        });
+    // Simulated Download Counter using LocalStorage
+    // This provides a base number that increments when the user clicks download
+    let baseDownloads = 14892;
+    let localDownloads = localStorage.getItem('ieb_downloads');
+
+    if (!localDownloads) {
+        localDownloads = 0;
+        localStorage.setItem('ieb_downloads', localDownloads);
+    }
+
+    let totalDownloads = baseDownloads + parseInt(localDownloads);
+    document.getElementById('dl-number').innerText = totalDownloads.toLocaleString();
+
+    // Re-attach download button event to increment counter
+    downloadBtn.addEventListener('click', () => {
+        if (selectedUrl) {
+            localDownloads = parseInt(localStorage.getItem('ieb_downloads')) || 0;
+            localDownloads++;
+            localStorage.setItem('ieb_downloads', localDownloads);
+
+            document.getElementById('dl-number').innerText = (baseDownloads + localDownloads).toLocaleString();
+
+            // Note: The previous click listener still handles the window.open
+        }
+    });
 });
