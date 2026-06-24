@@ -402,10 +402,7 @@ footer {
     }
 }
 
-/* ── AdSense / Ads ── */
-.ad-slot.hidden-ads {
-    display: none !important;
-}
+
 
 .ad-label {
     display: block;
@@ -439,46 +436,7 @@ footer {
     z-index: 50;
 }
 
-.ads-toggle {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    margin-left: 1.5rem;
-    cursor: pointer;
-    font-size: 0.85rem;
-    color: #aaa;
-}
 
-.ads-toggle input { display: none; }
-
-.ads-slider {
-    width: 36px;
-    height: 18px;
-    background: #333;
-    border-radius: 9px;
-    position: relative;
-    transition: 0.3s;
-}
-
-.ads-slider::after {
-    content: '';
-    position: absolute;
-    width: 14px;
-    height: 14px;
-    background: #fff;
-    border-radius: 50%;
-    top: 2px;
-    left: 2px;
-    transition: 0.3s;
-}
-
-.ads-toggle input:checked + .ads-slider {
-    background: var(--primary);
-}
-
-.ads-toggle input:checked + .ads-slider::after {
-    left: 20px;
-}
 
 /* Cookie banner */
 .cookie-banner {
@@ -511,65 +469,7 @@ footer {
     font-weight: 700;
 }
 
-/* Modal */
-.modal {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.8);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 3000;
-}
 
-.modal.hidden { display: none; }
-
-.modal-content {
-    background: #111;
-    border: 1px solid var(--primary);
-    border-radius: 12px;
-    padding: 2rem;
-    max-width: 480px;
-    margin: 1rem;
-}
-
-.modal-content h3 {
-    font-family: 'Orbitron', sans-serif;
-    color: var(--primary);
-    margin-bottom: 1rem;
-}
-
-.modal-content p {
-    color: #ccc;
-    line-height: 1.7;
-    margin-bottom: 1.5rem;
-}
-
-.modal-actions {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-
-.modal-btn {
-    flex: 1;
-    padding: 0.8rem;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: 700;
-    min-width: 120px;
-}
-
-.modal-btn.primary {
-    background: var(--primary);
-    color: #fff;
-}
-
-.modal-btn.secondary {
-    background: #333;
-    color: #aaa;
-}
 
 /* About / Legal */
 .about-section {

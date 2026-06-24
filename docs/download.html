@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Downloading IEB Client | IEB Games</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXX"
+        crossorigin="anonymous"></script>
+    <style>
+        .download-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            z-index: 10;
+        }
+
+        .download-layout {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 10%;
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        @media (max-width: 1024px) {
+            .download-layout {
+                flex-direction: column;
+                padding: 6rem 1rem 2rem 1rem;
+            }
+            .dl-side-ad {
+                display: none !important;
+            }
+        }
+
+        .dl-side-ad {
+            width: 160px;
+            height: 600px;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 10px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .dl-center-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 680px;
+            width: 100%;
+        }
+
+        .dl-card {
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: 0 0 40px rgba(255, 0, 0, 0.15);
+            width: 100%;
+            box-sizing: border-box;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .dl-card h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: #fff;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .countdown-text {
+            font-size: 1.1rem;
+            color: #aaa;
+            margin-bottom: 1.5rem;
+        }
+
+        .countdown-number {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--primary);
+            font-family: 'Orbitron', sans-serif;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+        }
+
+        .file-name {
+            font-family: 'JetBrains Mono', monospace;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            color: #ccc;
+            margin-bottom: 2rem;
+            display: inline-block;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .manual-dl-btn {
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 6px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        .manual-dl-btn:hover {
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .manual-dl-btn.hidden {
+            display: none;
+        }
+
+        .dl-info-section {
+            max-width: 680px;
+            width: 100%;
+            margin-top: 2rem;
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 2rem;
+            box-sizing: border-box;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .dl-info-section h3 {
+            color: var(--primary);
+            font-family: 'Orbitron', sans-serif;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .dl-info-section p, .dl-info-section li {
+            color: #aaa;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .dl-info-section ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .dl-info-section li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="glow-bg"></div>
+    <canvas id="particleCanvas"></canvas>
+
+    <div class="download-page">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="logo">
+                <span class="ieb-text">IEB</span><span class="client-text">CLIENT</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">HOME</a>
+                <a href="privacy.html">PRIVACY</a>
+            </div>
+        </nav>
+
+        <!-- Main Layout -->
+        <div class="download-layout">
+            <!-- Left Sidebar Ad -->
+            <div class="dl-side-ad">
+                <span class="ad-label">Advertisement</span>
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXX"
+                    data-ad-slot="0000000003" data-ad-format="vertical"></ins>
+            </div>
+
+            <!-- Center Countdown Card & Info -->
+            <div class="dl-center-container">
+                <div class="dl-card">
+                    <h2>Preparing your download</h2>
+                    <p class="countdown-text" id="countdown-msg">Your download will start in <span class="countdown-number" id="timer">5</span> seconds…</p>
+                    <span class="file-name" id="file-name">IEB-Client.jar</span>
+
+                    <!-- Embedded Inline Ad -->
+                    <div class="ad-banner" style="margin: 1.5rem 0; padding: 10px;">
+                        <span class="ad-label">Advertisement</span>
+                        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXX"
+                            data-ad-slot="0000000004" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
+                    </div>
+
+                    <a id="download-btn" class="manual-dl-btn hidden" href="#">Download now</a>
+                </div>
+
+                <!-- Publisher Content Details for AdSense Approval -->
+                <div class="dl-info-section">
+                    <h3>Installation Instructions</h3>
+                    <p>Follow these quick steps to set up the client jar on your system:</p>
+                    <ul>
+                        <li>Make sure Minecraft Forge 1.8.9 is installed on your launcher.</li>
+                        <li>Press <strong>Win + R</strong> on your keyboard, type <code>%appdata%</code> and hit Enter.</li>
+                        <li>Navigate into the <code>.minecraft</code> folder, then open the <code>mods</code> folder.</li>
+                        <li>Place the downloaded <code>.jar</code> file directly inside the mods folder.</li>
+                        <li>Restart your game and press <strong>TAB</strong> to open the menu.</li>
+                    </ul>
+
+                    <h3 style="margin-top: 1.5rem;">File Safety & Verification</h3>
+                    <p>All compiled releases of IEB Client are open-source. You can audit the complete compilation scripts, shadows, and Mixins directly in our repository. The files are checked and built automatically using GitHub Actions build chains to verify safety and build integrity.</p>
+                </div>
+            </div>
+
+            <!-- Right Sidebar Ad -->
+            <div class="dl-side-ad">
+                <span class="ad-label">Advertisement</span>
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXX"
+                    data-ad-slot="0000000005" data-ad-format="vertical"></ins>
+            </div>
+        </div>
+
+        <!-- Bottom Horizontal Ad Banner -->
+        <div class="ad-banner" style="max-width:1280px; width:90%; margin:2rem auto; padding: 10px;">
+            <span class="ad-label">Advertisement</span>
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXX"
+                data-ad-slot="0000000006" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 IEB Games. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="index.html">Home</a></p>
+        </footer>
+    </div>
+
+    <script>
+        // Query Parameter Parser
+        function getQueryParams() {
+            const params = {};
+            const search = window.location.search.substring(1);
+            if (search) {
+                const pairs = search.split('&');
+                for (let i = 0; i < pairs.length; i++) {
+                    const pair = pairs[i].split('=');
+                    params[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
+                }
+            }
+            return params;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = getQueryParams();
+            const fileUrl = params['url'];
+            const rawFileName = params['name'] || 'IEB-Client.jar';
+            
+            // Clean up name (extract part before " - " if exists)
+            const cleanFileName = rawFileName.split(' - ')[0] + '.jar';
+            
+            const fileNameEl = document.getElementById('file-name');
+            const downloadBtn = document.getElementById('download-btn');
+            const timerEl = document.getElementById('timer');
+            const msgEl = document.getElementById('countdown-msg');
+
+            if (fileNameEl) fileNameEl.textContent = cleanFileName;
+            if (downloadBtn && fileUrl) {
+                downloadBtn.href = fileUrl;
+                downloadBtn.setAttribute('download', '');
+            }
+
+            // GDPR Cookie consent load helper
+            const consent = localStorage.getItem('ieb_cookie_consent_docs') || localStorage.getItem('ieb-cookie-consent');
+            if (consent === 'accepted' && window.adsbygoogle) {
+                document.querySelectorAll('.adsbygoogle').forEach(ins => {
+                    try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e){}
+                });
+            }
+
+            // Geri Sayım Algoritması
+            let seconds = 5;
+            const interval = setInterval(() => {
+                seconds--;
+                if (timerEl) timerEl.textContent = seconds;
+                
+                if (seconds <= 0) {
+                    clearInterval(interval);
+                    if (msgEl) msgEl.innerHTML = "Your download has started! If it didn't, click the button below.";
+                    if (downloadBtn) downloadBtn.classList.remove('hidden');
+                    
+                    // Trigger download
+                    if (fileUrl) {
+                        const tempLink = document.createElement('a');
+                        tempLink.href = fileUrl;
+                        tempLink.setAttribute('download', '');
+                        document.body.appendChild(tempLink);
+                        tempLink.click();
+                        document.body.removeChild(tempLink);
+                    }
+                }
+            }, 1000);
+
+            // Particles Background (Arka Plan Efekti - index'ten alındı)
+            const canvas = document.getElementById('particleCanvas');
+            if (canvas) {
+                const ctx = canvas.getContext('2d');
+                let particles = [];
+
+                function resize() {
+                    canvas.width = window.innerWidth;
+                    canvas.height = window.innerHeight;
+                }
+                window.addEventListener('resize', resize);
+                resize();
+
+                class Particle {
+                    constructor() { this.init(); }
+                    init() {
+                        this.x = Math.random() * canvas.width;
+                        this.y = canvas.height + Math.random() * 100;
+                        this.size = Math.random() * 3 + 1;
+                        this.speedY = Math.random() * 3 + 1.5;
+                        this.speedX = (Math.random() - 0.5) * 1.5;
+                        this.alpha = 1;
+                        this.decay = Math.random() * 0.005 + 0.002;
+                    }
+                    update() {
+                        this.y -= this.speedY;
+                        this.x += this.speedX;
+                        this.alpha -= this.decay;
+                        if (this.alpha <= 0) this.init();
+                    }
+                    draw() {
+                        ctx.fillStyle = `rgba(255, ${Math.floor(Math.random() * 155 + 100)}, 50, ${this.alpha})`;
+                        ctx.beginPath();
+                        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                        ctx.fill();
+                    }
+                }
+
+                for (let i = 0; i < 100; i++) particles.push(new Particle());
+
+                function animate() {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    particles.forEach(p => { p.update(); p.draw(); });
+                    requestAnimationFrame(animate);
+                }
+                animate();
+            }
+        });
+    </script>
+</body>
+
+</html>
