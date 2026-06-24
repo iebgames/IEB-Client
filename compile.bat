@@ -1,7 +1,7 @@
 @echo off
 setlocal
 echo ========================================
-echo IEB CLIENT - NUCLEAR BUILDER (DEBUG)
+echo IEB CLIENT - DEV BUILDER (DEBUG)
 echo ========================================
 
 :: Use the pre-configured JAVA_HOME in gradle.properties

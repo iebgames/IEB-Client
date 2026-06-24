@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IEB Client | IEB Games Official</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+
+<body>
+    <div class="glow-bg"></div>
+    <canvas id="particleCanvas"></canvas>
+
+    <nav class="navbar">
+        <div class="logo">
+            <span class="ieb-text">IEB</span><span class="client-text">CLIENT</span>
+            <span class="version-badge">v6.4.0</span>
+        </div>
+        <div class="nav-links">
+            <a href="#features">FEATURES</a>
+            <a href="#download" class="nav-dl">DOWNLOAD</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <h1 class="main-title">IEB CLIENT</h1>
+            <p class="tagline">DEVELOPED BY IEB GAMES • NOW WITH SCRIPTS</p>
+            <div class="action-btns">
+                <a href="#download" class="main-btn">DOWNLOAD LATEST</a>
+                <a href="https://instagram.com/ieb_software/" target="_blank" class="sub-btn">INSTAGRAM</a>
+            </div>
+        </section>
+
+        <section id="features" class="features-section">
+            <h2 class="section-title">100+ FEATURES</h2>
+            <div class="features-grid">
+                <div class="feature-category">
+                    <h3>COMBAT</h3>
+                    <ul>
+                        <li>KillAura, MultiAura, Triggerbot</li>
+                        <li>AimAssist, Criticals, AutoClicker</li>
+                        <li>Reach, Hitbox, Velocity, Anti-Knockback</li>
+                        <li>BowAimbot, ShieldBreaker, Backtrack</li>
+                        <li>W-Tap Assist, SprintReset, Anti-Bot</li>
+                    </ul>
+                </div>
+                <div class="feature-category">
+                    <h3>MOVEMENT</h3>
+                    <ul>
+                        <li>Fly, CreativeFly, Speed, BHop</li>
+                        <li>LongJump, HighJump, Step, ReverseStep</li>
+                        <li>NoFall, Glide, Jesus, Dolphin, Spider</li>
+                        <li>Phase, SafeWalk, Sprint, Strafe</li>
+                        <li>InventoryMove, Timer, NoSlow</li>
+                    </ul>
+                </div>
+                <div class="feature-category">
+                    <h3>RENDER</h3>
+                    <ul>
+                        <li>X-Ray, Fullbright, ESP, PlayerESP</li>
+                        <li>ChestESP, StorageESP, ItemESP, MobESP</li>
+                        <li>Tracers, NameTags, BlockOverlay</li>
+                        <li>Breadcrumbs, Freecam, CameraClip</li>
+                        <li>Wallhack, HitColor, DamageIndicator</li>
+                        <li>Radar, NoHurtCam, Anti-Overlay</li>
+                    </ul>
+                </div>
+                <div class="feature-category">
+                    <h3>WORLD / PLAYER</h3>
+                    <ul>
+                        <li>Scaffold, Tower, Nuker, FastBreak</li>
+                        <li>FastPlace, AutoTool, AutoArmor, AutoFish</li>
+                        <li>AutoMine, ChestStealer, Stealer, AutoCraft</li>
+                        <li>AutoBuild, FastLadder, FastEat</li>
+                        <li>LiquidInteract, GhostHand, BlockReach</li>
+                        <li>AntiFire, AntiWeb</li>
+                    </ul>
+                </div>
+                <div class="feature-category scripting-card">
+                    <div class="new-badge">NEW</div>
+                    <h3>SCRIPTING (NASHORN)</h3>
+                    <ul>
+                        <li>Powerful JS Engine Support</li>
+                        <li>In-Game Multi-Line Editor</li>
+                        <li>File Management System</li>
+                        <li>Custom Module Creation</li>
+                        <li>Hot Reloading (CTRL+S)</li>
+                        <li>Shareable Scripts (.js)</li>
+                    </ul>
+                </div>
+                <div class="feature-category">
+                    <div class="new-badge">NEW</div>
+                    <h3>GUI & VISUALS</h3>
+                    <ul>
+                        <li><b>Ctrl + Mouse Wheel</b> Zoom</li>
+                        <li>Real-time Scaling (Default 60%)</li>
+                        <li>Draggable UI Panels</li>
+                        <li>Fully Animated Category Icons</li>
+                        <li>Professional Accent Colors</li>
+                        <li>Fixed Copyright Visibility</li>
+                    </ul>
+                </div>
+                <div class="feature-category">
+                    <h3>MISC</h3>
+                    <ul>
+                        <li>Anti-AFK, Blink, FakeLag, Disabler</li>
+                        <li>PingSpoof, ChatSpammer, ChatBypass</li>
+                        <li>Macro Manager, CapeChanger</li>
+                        <li>ReplayRecorder, AntiCrash</li>
+                        <li>PacketCancel, FastRespawn</li>
+                        <li>AutoQueue, FriendManager</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="download" class="download-card">
+            <div class="glass-container">
+                <h2>DOWNLOAD HERE</h2>
+                <p>Select the version you want to download below.</p>
+
+                <div class="custom-select" id="versionSelector">
+                    <div class="select-trigger">
+                        <span>SELECT VERSION</span>
+                        <div class="arrow"></div>
+                    </div>
+                    <div class="options">
+                        <div class="option"
+                            data-url="https://github.com/iebgames/IEB-Client/releases/download/v6.4.0/IEB-Client-v6.4.0.jar">
+                            IEB Client v6.4.0 (LATEST) - 1.8.9 Forge</div>
+                        <div class="option"
+                            data-url="https://github.com/iebgames/IEB-Client/releases/download/beta4.46/IEBClient-Beta-4.46.jar">
+                            IEB Client Beta v4.46 - 1.8.9 Forge</div>
+                        <div class="option"
+                            data-url="https://github.com/iebgames/IEB-Client/releases/download/beta3.56/IEBClient-Beta-3.56.jar">
+                            IEB Client Beta v3.56 - 1.8.9 Forge</div>
+                        <div class="option"
+                            data-url="https://github.com/iebgames/IEB-Client/releases/download/beta3.42/IEBClient-Beta-3.42.jar">
+                            IEB Client Beta v3.42 - 1.8.9 Forge</div>
+                    </div>
+                </div>
+
+                <button class="final-download-btn" id="finalDownload" disabled>DOWNLOAD .JAR</button>
+                <p class="download-count" style="margin-top: 15px; font-size: 0.9em; color: rgba(255,255,255,0.7);">
+                    <span id="dl-number" style="font-weight: bold; color: var(--accent);">Loading...</span> people
+                    already downloaded!
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 IEB GAMES All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+
+</html>
+
+
+

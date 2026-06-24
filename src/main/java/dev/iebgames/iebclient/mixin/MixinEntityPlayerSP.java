@@ -15,16 +15,19 @@ public class MixinEntityPlayerSP {
     private void onPreMotionUpdate(CallbackInfo ci) {
         EntityPlayerSP player = (EntityPlayerSP) (Object) this;
         EventMotion event = new EventMotion(player.rotationYaw, player.rotationPitch, player.posX, player.getEntityBoundingBox().minY, player.posZ, player.onGround, true);
-        IEBClient.INSTANCE.eventBus.post(event);
-        
-        // Apply spoofed rotations/position
-        // player.rotationYaw = event.getYaw();
-        // player.rotationPitch = event.getPitch();
+        if (IEBClient.INSTANCE != null && IEBClient.eventBus != null) {
+            IEBClient.eventBus.post(event);
+        }
+
+        player.rotationYaw = event.getYaw();
+        player.rotationPitch = event.getPitch();
     }
 
     @Inject(method = "onUpdateWalkingPlayer", at = @At("RETURN"))
     private void onPostMotionUpdate(CallbackInfo ci) {
         EntityPlayerSP player = (EntityPlayerSP) (Object) this;
-        IEBClient.INSTANCE.eventBus.post(new EventMotion(player.rotationYaw, player.rotationPitch, player.posX, player.getEntityBoundingBox().minY, player.posZ, player.onGround, false));
+        if (IEBClient.INSTANCE != null && IEBClient.eventBus != null) {
+            IEBClient.eventBus.post(new EventMotion(player.rotationYaw, player.rotationPitch, player.posX, player.getEntityBoundingBox().minY, player.posZ, player.onGround, false));
+        }
     }
 }

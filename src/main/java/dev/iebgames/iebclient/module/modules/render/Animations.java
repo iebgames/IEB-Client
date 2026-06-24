@@ -1,19 +1,24 @@
 package dev.iebgames.iebclient.module.modules.render;
 
+import dev.iebgames.iebclient.event.EventHook;
+import dev.iebgames.iebclient.event.events.EventUpdate;
 import dev.iebgames.iebclient.module.Category;
 import dev.iebgames.iebclient.module.Module;
-import dev.iebgames.iebclient.setting.ModeSetting;
+import dev.iebgames.iebclient.setting.NumberSetting;
 import org.lwjgl.input.Keyboard;
 
 public class Animations extends Module {
 
-    private final ModeSetting mode = register(new ModeSetting("Mode", "1.7", "Slide", "Sigma", "Swing"));
+    private final NumberSetting speed = register(new NumberSetting("Swing Speed", 1.0, 0.5, 2.0, 0.1));
 
     public Animations() {
-        super("Animations", "Bloklama ve vurma animasyonlarını değiştirir.", Category.RENDER, Keyboard.KEY_NONE);
+        super("Animations", "Vurma/bloklama animasyon hızını değiştirir.", Category.RENDER, Keyboard.KEY_NONE);
     }
 
-    public String getAnimationMode() {
-        return mode.getMode();
+    @EventHook
+    public void onUpdate(EventUpdate e) {
+        if (mc.thePlayer != null) {
+            mc.thePlayer.swingProgressInt = (int) (mc.thePlayer.swingProgress * speed.getFloat());
+        }
     }
 }

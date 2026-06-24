@@ -75,7 +75,7 @@ public abstract class Module {
 
     // ── Getters ────────────────────────────────────────────────────
     public String         getName()        { return name; }
-    public String         getDescription() { return description; }
+    public String         getDescription() { return EnglishDescriptions.get(name, description); }
     public Category       getCategory()    { return category; }
     public int            getKeybind()     { return keybind; }
     public void           setKeybind(int k){ this.keybind = k; }

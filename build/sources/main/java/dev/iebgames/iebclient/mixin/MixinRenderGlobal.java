@@ -2,7 +2,6 @@ package dev.iebgames.iebclient.mixin;
 
 import dev.iebgames.iebclient.IEBClient;
 import dev.iebgames.iebclient.module.modules.render.BlockOverlay;
-import dev.iebgames.iebclient.module.modules.render.ClickGUIModule;
 import dev.iebgames.iebclient.util.ColorUtils;
 import net.minecraft.client.renderer.RenderGlobal;
 import net.minecraft.entity.player.EntityPlayer;
@@ -34,9 +33,10 @@ public class MixinRenderGlobal {
                 double x = player.lastTickPosX + (player.posX - player.lastTickPosX) * partialTicks;
                 double y = player.lastTickPosY + (player.posY - player.lastTickPosY) * partialTicks;
                 double z = player.lastTickPosZ + (player.posZ - player.lastTickPosZ) * partialTicks;
-                
-                ClickGUIModule theme = IEBClient.moduleManager.getModule(ClickGUIModule.class);
-                int color = theme.blockOverlayColor.isChroma() ? ColorUtils.getChroma(3000, 0) : theme.blockOverlayColor.getColor();
+
+                int color = blockOverlay.chroma.isEnabled()
+                        ? ColorUtils.getChroma(3000, 0)
+                        : blockOverlay.color.getColor();
                 float r = ((color >> 16) & 0xFF) / 255f;
                 float g = ((color >> 8) & 0xFF) / 255f;
                 float b = (color & 0xFF) / 255f;

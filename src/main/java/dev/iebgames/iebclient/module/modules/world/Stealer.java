@@ -10,7 +10,7 @@ import org.lwjgl.input.Keyboard;
 
 public class Stealer extends Module {
     public Stealer() {
-        super("Stealer", "Containerlardaki eşyaları hızlıca çalar.", Category.MISC, Keyboard.KEY_NONE);
+        super("Stealer", "Containerlardaki eşyaları hızlıca çalar.", Category.WORLD, Keyboard.KEY_NONE);
     }
 
     @EventHook

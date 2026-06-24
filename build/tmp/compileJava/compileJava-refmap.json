@@ -3,6 +3,7 @@
     "dev/iebgames/iebclient/mixin/MinecraftAccessor": {
       "rightClickDelayTimer": "field_71467_ac:I",
       "timer": "field_71428_T:Lnet/minecraft/util/Timer;",
+      "rightClickMouse": "func_147121_ag()V",
       "leftClickCounter": "field_71429_W:I"
     },
     "dev/iebgames/iebclient/mixin/PlayerControllerAccessor": {
@@ -20,7 +21,6 @@
       "pressed": "field_74513_e:Z"
     },
     "dev/iebgames/iebclient/mixin/MixinGuiIngame": {
-      "renderTooltip": "Lnet/minecraft/client/gui/GuiIngame;func_180479_a(Lnet/minecraft/client/gui/ScaledResolution;F)V",
       "renderGameOverlay": "Lnet/minecraft/client/gui/GuiIngame;func_175180_a(F)V"
     },
     "dev/iebgames/iebclient/mixin/MixinRenderGlobal": {
@@ -29,6 +29,9 @@
     "dev/iebgames/iebclient/mixin/MixinMinecraft": {
       "Lnet/minecraft/client/Minecraft;dispatchKeypresses()V": "Lnet/minecraft/client/Minecraft;func_152348_aa()V",
       "runTick": "Lnet/minecraft/client/Minecraft;func_71407_l()V"
+    },
+    "dev/iebgames/iebclient/mixin/MixinEntity": {
+      "getCollisionBorderSize": "Lnet/minecraft/entity/Entity;func_70111_Y()F"
     },
     "dev/iebgames/iebclient/mixin/MixinGuiOptions": {
       "actionPerformed": "Lnet/minecraft/client/gui/GuiOptions;func_146284_a(Lnet/minecraft/client/gui/GuiButton;)V",
@@ -39,6 +42,9 @@
     },
     "dev/iebgames/iebclient/mixin/EntityRendererAccessor": {
       "setupCameraTransform": "func_78479_a(FI)V"
+    },
+    "dev/iebgames/iebclient/mixin/MixinPlayerControllerMP": {
+      "getBlockReachDistance": "Lnet/minecraft/client/multiplayer/PlayerControllerMP;func_78757_d()F"
     },
     "dev/iebgames/iebclient/mixin/C03PacketPlayerAccessor": {
       "onGround": "field_149474_g:Z"
@@ -60,6 +66,7 @@
       "channelRead0": "Lnet/minecraft/network/NetworkManager;channelRead0(Lio/netty/channel/ChannelHandlerContext;Lnet/minecraft/network/Packet;)V"
     },
     "dev/iebgames/iebclient/mixin/MixinEntityRenderer": {
+      "hurtCameraEffect": "Lnet/minecraft/client/renderer/EntityRenderer;func_78482_e(F)V",
       "Lnet/minecraft/client/renderer/EntityRenderer;renderHand:Z": "Lnet/minecraft/client/renderer/EntityRenderer;field_175074_C:Z",
       "renderWorldPass": "Lnet/minecraft/client/renderer/EntityRenderer;func_175068_a(IFJ)V"
     }
@@ -69,6 +76,7 @@
       "dev/iebgames/iebclient/mixin/MinecraftAccessor": {
         "rightClickDelayTimer": "ap:I",
         "timer": "Y:Lavl;",
+        "rightClickMouse": "ax()V",
         "leftClickCounter": "ag:I"
       },
       "dev/iebgames/iebclient/mixin/PlayerControllerAccessor": {
@@ -86,7 +94,6 @@
         "pressed": "h:Z"
       },
       "dev/iebgames/iebclient/mixin/MixinGuiIngame": {
-        "renderTooltip": "Lavo;a(Lavr;F)V",
         "renderGameOverlay": "Lavo;a(F)V"
       },
       "dev/iebgames/iebclient/mixin/MixinRenderGlobal": {
@@ -95,6 +102,9 @@
       "dev/iebgames/iebclient/mixin/MixinMinecraft": {
         "Lnet/minecraft/client/Minecraft;dispatchKeypresses()V": "Lave;Z()V",
         "runTick": "Lave;s()V"
+      },
+      "dev/iebgames/iebclient/mixin/MixinEntity": {
+        "getCollisionBorderSize": "Lpk;ao()F"
       },
       "dev/iebgames/iebclient/mixin/MixinGuiOptions": {
         "actionPerformed": "Laxn;a(Lavs;)V",
@@ -105,6 +115,9 @@
       },
       "dev/iebgames/iebclient/mixin/EntityRendererAccessor": {
         "setupCameraTransform": "a(FI)V"
+      },
+      "dev/iebgames/iebclient/mixin/MixinPlayerControllerMP": {
+        "getBlockReachDistance": "Lbda;d()F"
       },
       "dev/iebgames/iebclient/mixin/C03PacketPlayerAccessor": {
         "onGround": "f:Z"
@@ -126,6 +139,7 @@
         "channelRead0": "Lek;a(Lio/netty/channel/ChannelHandlerContext;Lff;)V"
       },
       "dev/iebgames/iebclient/mixin/MixinEntityRenderer": {
+        "hurtCameraEffect": "Lbfk;d(F)V",
         "Lnet/minecraft/client/renderer/EntityRenderer;renderHand:Z": "Lbfk;C:Z",
         "renderWorldPass": "Lbfk;a(IFJ)V"
       }
@@ -134,6 +148,7 @@
       "dev/iebgames/iebclient/mixin/MinecraftAccessor": {
         "rightClickDelayTimer": "field_71467_ac:I",
         "timer": "field_71428_T:Lnet/minecraft/util/Timer;",
+        "rightClickMouse": "func_147121_ag()V",
         "leftClickCounter": "field_71429_W:I"
       },
       "dev/iebgames/iebclient/mixin/PlayerControllerAccessor": {
@@ -151,7 +166,6 @@
         "pressed": "field_74513_e:Z"
       },
       "dev/iebgames/iebclient/mixin/MixinGuiIngame": {
-        "renderTooltip": "Lnet/minecraft/client/gui/GuiIngame;func_180479_a(Lnet/minecraft/client/gui/ScaledResolution;F)V",
         "renderGameOverlay": "Lnet/minecraft/client/gui/GuiIngame;func_175180_a(F)V"
       },
       "dev/iebgames/iebclient/mixin/MixinRenderGlobal": {
@@ -160,6 +174,9 @@
       "dev/iebgames/iebclient/mixin/MixinMinecraft": {
         "Lnet/minecraft/client/Minecraft;dispatchKeypresses()V": "Lnet/minecraft/client/Minecraft;func_152348_aa()V",
         "runTick": "Lnet/minecraft/client/Minecraft;func_71407_l()V"
+      },
+      "dev/iebgames/iebclient/mixin/MixinEntity": {
+        "getCollisionBorderSize": "Lnet/minecraft/entity/Entity;func_70111_Y()F"
       },
       "dev/iebgames/iebclient/mixin/MixinGuiOptions": {
         "actionPerformed": "Lnet/minecraft/client/gui/GuiOptions;func_146284_a(Lnet/minecraft/client/gui/GuiButton;)V",
@@ -170,6 +187,9 @@
       },
       "dev/iebgames/iebclient/mixin/EntityRendererAccessor": {
         "setupCameraTransform": "func_78479_a(FI)V"
+      },
+      "dev/iebgames/iebclient/mixin/MixinPlayerControllerMP": {
+        "getBlockReachDistance": "Lnet/minecraft/client/multiplayer/PlayerControllerMP;func_78757_d()F"
       },
       "dev/iebgames/iebclient/mixin/C03PacketPlayerAccessor": {
         "onGround": "field_149474_g:Z"
@@ -191,6 +211,7 @@
         "channelRead0": "Lnet/minecraft/network/NetworkManager;channelRead0(Lio/netty/channel/ChannelHandlerContext;Lnet/minecraft/network/Packet;)V"
       },
       "dev/iebgames/iebclient/mixin/MixinEntityRenderer": {
+        "hurtCameraEffect": "Lnet/minecraft/client/renderer/EntityRenderer;func_78482_e(F)V",
         "Lnet/minecraft/client/renderer/EntityRenderer;renderHand:Z": "Lnet/minecraft/client/renderer/EntityRenderer;field_175074_C:Z",
         "renderWorldPass": "Lnet/minecraft/client/renderer/EntityRenderer;func_175068_a(IFJ)V"
       }

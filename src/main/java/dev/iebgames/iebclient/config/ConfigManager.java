@@ -44,6 +44,8 @@ public class ConfigManager {
                         settingsJson.addProperty(s.getName(), ((NumberSetting) s).getValue());
                     } else if (s instanceof ModeSetting) {
                         settingsJson.addProperty(s.getName(), (String) s.getValue());
+                    } else if (s instanceof TextSetting) {
+                        settingsJson.addProperty(s.getName(), (String) s.getValue());
                     } else if (s instanceof ColorSetting) {
                         ColorSetting cs = (ColorSetting) s;
                         settingsJson.addProperty(s.getName() + "_R", cs.getRed());
@@ -87,6 +89,8 @@ public class ConfigManager {
                                 ((NumberSetting) s).setValue(settingsJson.get(s.getName()).getAsDouble());
                             } else if (s instanceof ModeSetting && settingsJson.has(s.getName())) {
                                 ((ModeSetting) s).setValue(settingsJson.get(s.getName()).getAsString());
+                            } else if (s instanceof TextSetting && settingsJson.has(s.getName())) {
+                                ((TextSetting) s).setValue(settingsJson.get(s.getName()).getAsString());
                             } else if (s instanceof ColorSetting) {
                                 ColorSetting cs = (ColorSetting) s;
                                 if (settingsJson.has(s.getName() + "_R")) cs.setRed(settingsJson.get(s.getName() + "_R").getAsInt());

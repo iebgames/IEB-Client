@@ -6,10 +6,10 @@ import dev.iebgames.iebclient.setting.NumberSetting;
 import org.lwjgl.input.Keyboard;
 
 public class BlockReach extends Module {
-    public final NumberSetting distance = register(new NumberSetting("Distance", 10.0, 3.0, 20.0, 0.1));
+
+    public final NumberSetting distance = register(new NumberSetting("Distance", 5.0, 3.0, 8.0, 0.1));
 
     public BlockReach() {
-        super("BlockReach", "Blok kırma/koyma mesafesini arttırır.", Category.MISC, Keyboard.KEY_NONE);
+        super("BlockReach", "Blok kırma/koyma mesafesini arttırır.", Category.WORLD, Keyboard.KEY_NONE);
     }
-    // Value used in MixinPlayerControllerMP
 }

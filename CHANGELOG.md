@@ -17,6 +17,13 @@
         - **Refined HUD:** Watermark and active modules list improved.
         - **Professional Versioning:** Unified versioning across build process and client HUD.
 
+### _**v6.4.0**_
+        - **Script Engine Fixed:** mc + API bridge, per-file Nashorn engine, full event callbacks
+        - **Script Editor:** Full-screen editor with line numbers, scroll, Ctrl+S, F5 test
+        - **AI Script Studio:** Improved system prompt, API key file storage, better parsing
+        - **160+ Modules:** All stubs implemented, 12 new modules added
+        - **Version:** 6.4.0 — FIXED label removed
+
 ### _**FIXES**_
         - **Fixed The Toggles:** Modules now toggle correctly and persist their state.
         - **Fixed Block Overlay:** Colors and visibility now strictly follow your settings.

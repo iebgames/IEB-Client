@@ -15,6 +15,6 @@ public class Crosshair extends Module {
     public final BooleanSetting chroma = register(new BooleanSetting("Chroma", false));
 
     public Crosshair() {
-        super("Crosshair", "Ekrandaki nişangahı özelleştirmeni sağlar.", Category.RENDER, Keyboard.KEY_NONE);
+        super("Crosshair", "Custom crosshair with size, gap, color and chroma.", Category.RENDER, Keyboard.KEY_NONE);
     }
 }

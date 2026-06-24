@@ -396,4 +396,374 @@ footer {
     .features-grid {
         grid-template-columns: 1fr;
     }
+
+    .ad-sidebar {
+        display: none;
+    }
+}
+
+/* ── AdSense / Ads ── */
+.ad-slot.hidden-ads {
+    display: none !important;
+}
+
+.ad-label {
+    display: block;
+    font-size: 0.65rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+    text-align: center;
+}
+
+.ad-banner {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background: rgba(255,255,255,0.02);
+    border: 1px dashed var(--border);
+    border-radius: 8px;
+    min-height: 90px;
+}
+
+.ad-sidebar {
+    position: fixed;
+    right: 16px;
+    top: 120px;
+    width: 160px;
+    padding: 10px;
+    background: rgba(0,0,0,0.6);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    z-index: 50;
+}
+
+.ads-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 1.5rem;
+    cursor: pointer;
+    font-size: 0.85rem;
+    color: #aaa;
+}
+
+.ads-toggle input { display: none; }
+
+.ads-slider {
+    width: 36px;
+    height: 18px;
+    background: #333;
+    border-radius: 9px;
+    position: relative;
+    transition: 0.3s;
+}
+
+.ads-slider::after {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background: #fff;
+    border-radius: 50%;
+    top: 2px;
+    left: 2px;
+    transition: 0.3s;
+}
+
+.ads-toggle input:checked + .ads-slider {
+    background: var(--primary);
+}
+
+.ads-toggle input:checked + .ads-slider::after {
+    left: 20px;
+}
+
+/* Cookie banner */
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(10,10,10,0.95);
+    border-top: 1px solid var(--border);
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    z-index: 2000;
+    flex-wrap: wrap;
+}
+
+.cookie-banner.hidden { display: none; }
+
+.cookie-banner a { color: var(--accent); }
+
+.cookie-btn {
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3000;
+}
+
+.modal.hidden { display: none; }
+
+.modal-content {
+    background: #111;
+    border: 1px solid var(--primary);
+    border-radius: 12px;
+    padding: 2rem;
+    max-width: 480px;
+    margin: 1rem;
+}
+
+.modal-content h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.modal-content p {
+    color: #ccc;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.modal-btn {
+    flex: 1;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 700;
+    min-width: 120px;
+}
+
+.modal-btn.primary {
+    background: var(--primary);
+    color: #fff;
+}
+
+.modal-btn.secondary {
+    background: #333;
+    color: #aaa;
+}
+
+/* About / Legal */
+.about-section {
+    padding: 6rem 10%;
+    text-align: center;
+}
+
+.about-content {
+    max-width: 700px;
+    margin: 0 auto;
+    color: #aaa;
+    line-height: 1.8;
+}
+
+.about-content a { color: var(--accent); }
+
+.legal-note {
+    font-size: 0.85rem;
+    color: #666;
+    margin-top: 1.5rem;
+}
+
+.section-sub {
+    text-align: center;
+    color: #888;
+    margin: -3rem auto 3rem;
+    max-width: 600px;
+}
+
+.download-note {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.legal-page {
+    max-width: 800px;
+    margin: 120px auto 4rem;
+    padding: 0 2rem;
+    line-height: 1.8;
+}
+
+.legal-page h1 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+.legal-page h2 {
+    margin-top: 2rem;
+    color: #fff;
+}
+
+.legal-page ul {
+    margin-left: 1.5rem;
+    color: #aaa;
+}
+
+.legal-page a { color: var(--accent); }
+
+/* Download count */
+.download-count {
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.75);
+}
+
+.download-count #dl-number {
+    font-weight: 800;
+    color: var(--accent);
+}
+
+.footer-downloads {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.footer-downloads #footer-dl-number {
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.ad-inline {
+    margin: 1.5rem 0;
+    min-height: 250px;
+}
+
+/* Download countdown overlay */
+.download-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.92);
+    z-index: 5000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.download-overlay.hidden {
+    display: none !important;
+}
+
+.download-overlay-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 1100px;
+    flex: 1;
+}
+
+.download-countdown-box {
+    background: rgba(20, 20, 20, 0.95);
+    border: 1px solid var(--primary);
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    min-width: 320px;
+    max-width: 480px;
+    box-shadow: 0 0 40px rgba(255, 0, 0, 0.2);
+}
+
+.download-countdown-box h2 {
+    font-family: 'Orbitron', sans-serif;
+    color: #fff;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+.countdown-msg {
+    font-size: 1.2rem;
+    color: #ccc;
+    margin-bottom: 0.5rem;
+}
+
+.countdown-msg #countdownNum {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--primary);
+    font-family: 'Orbitron', sans-serif;
+}
+
+.countdown-sub {
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 1.5rem;
+}
+
+.ad-overlay-center {
+    min-height: 90px;
+    margin-top: 1rem;
+}
+
+.download-overlay-ads {
+    width: 160px;
+    min-height: 600px;
+    padding: 10px;
+    background: rgba(255,255,255,0.03);
+    border: 1px dashed var(--border);
+    border-radius: 8px;
+}
+
+.download-overlay-bottom {
+    width: 100%;
+    max-width: 728px;
+    min-height: 90px;
+    margin-top: 1rem;
+    padding: 10px;
+    background: rgba(255,255,255,0.03);
+    border: 1px dashed var(--border);
+    border-radius: 8px;
+}
+
+.skip-btn {
+    margin-top: 1rem;
+    background: transparent;
+    border: 1px solid #555;
+    color: #888;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+@media (max-width: 900px) {
+    .download-overlay-ads:not(.ad-overlay-center) {
+        display: none;
+    }
+
+    .download-overlay-inner {
+        flex-direction: column;
+    }
 }

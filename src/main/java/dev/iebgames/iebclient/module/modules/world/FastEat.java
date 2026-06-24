@@ -9,7 +9,7 @@ import org.lwjgl.input.Keyboard;
 
 public class FastEat extends Module {
     public FastEat() {
-        super("FastEat", "Yemekleri anında ye.", Category.MISC, Keyboard.KEY_NONE);
+        super("FastEat", "Yemekleri anında ye.", Category.WORLD, Keyboard.KEY_NONE);
     }
 
     @EventHook

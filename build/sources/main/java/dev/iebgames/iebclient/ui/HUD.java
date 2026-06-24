@@ -21,17 +21,19 @@ public class HUD extends Gui {
 
     public void draw() {
         // Draw Watermark
-        fr.drawStringWithShadow(IEBClient.NAME + " v" + IEBClient.VERSION, 4, 4, 0xFFFF0000);
+        if (!dev.iebgames.iebclient.module.modules.misc.StreamerMode.hideWatermark) {
+            fr.drawStringWithShadow(IEBClient.NAME + " v" + IEBClient.VERSION, 4, 4, 0xFFFF0000);
+        }
 
         // Draw Active Modules List
         int y = 14;
-        List<Module> modules = IEBClient.moduleManager.getModules();
-        
-        // Sort by length or just list them
-        for (Module m : modules) {
-            if (m.isToggled()) {
-                fr.drawStringWithShadow(m.getName(), 4, y, -1);
-                y += 10;
+        if (!dev.iebgames.iebclient.module.modules.misc.StreamerMode.hideModules) {
+            List<Module> modules = IEBClient.moduleManager.getModules();
+            for (Module m : modules) {
+                if (m.isToggled()) {
+                    fr.drawStringWithShadow(m.getName(), 4, y, -1);
+                    y += 10;
+                }
             }
         }
 
@@ -54,18 +56,14 @@ public class HUD extends Gui {
     }
 
     private void drawCrosshair(ScaledResolution sr, Crosshair ch) {
-        ClickGUIModule theme = IEBClient.moduleManager.getModule(ClickGUIModule.class);
         int x = sr.getScaledWidth() / 2;
         int y = sr.getScaledHeight() / 2;
-        int color = theme.crosshairColor.isChroma() ? ColorUtils.getChroma(3000, 0) : theme.crosshairColor.getColor();
+        int color = ch.chroma.isEnabled() ? ColorUtils.getChroma(3000, 0) : ch.color.getColor();
         float size = ch.size.getFloat();
         float gap = ch.gap.getFloat();
 
-        // Horizontal lines
         RenderUtils.draw2DRect(x - (int)(gap + size), y - 1, (int)size, 2, color);
         RenderUtils.draw2DRect(x + (int)gap, y - 1, (int)size, 2, color);
-        
-        // Vertical lines
         RenderUtils.draw2DRect(x - 1, y - (int)(gap + size), 2, (int)size, color);
         RenderUtils.draw2DRect(x - 1, y + (int)gap, 2, (int)size, color);
     }

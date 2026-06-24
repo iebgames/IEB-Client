@@ -48,6 +48,9 @@ public class ModuleManager {
         register(new WTapAssist());
         register(new SprintReset());
         register(new AntiBot());
+        register(new BedAura());
+        register(new AutoPearl());
+        register(new LegitAura());
 
         // ── Movement ──────────────────────────────────────────────
         register(new Fly());
@@ -77,6 +80,7 @@ public class ModuleManager {
         register(new InventoryMove());
         register(new Timer());
         register(new NoSlow());
+        register(new BridgeAssist());
 
         // ── Render ────────────────────────────────────────────────
         register(new XRay());
@@ -87,6 +91,7 @@ public class ModuleManager {
         register(new StorageESP());
         register(new ItemESP());
         register(new MobESP());
+        register(new Tracers());
         register(new ESP2D());
         register(new BedPlates());
         register(new TrueSight());
@@ -94,11 +99,9 @@ public class ModuleManager {
         register(new Ambience());
         register(new CombatVisuals());
         register(new NameProtect());
-        register(new ItemESP());
         register(new Projectiles());
         register(new JumpCircle());
         register(new TNTTimer());
-        register(new Fucker());
         register(new TargetHUD());
         register(new ItemPhysics());
         register(new Crosshair());
@@ -115,6 +118,9 @@ public class ModuleManager {
         register(new ClickGUIModule());
         register(new AntiOverlay());
         register(new Chams());
+        register(new HoleESP());
+        register(new PotionHUD());
+        register(new BlockESP());
 
         // ── World ─────────────────────────────────────────────────
         register(new Scaffold());
@@ -132,6 +138,20 @@ public class ModuleManager {
         register(new BlockReach());
         register(new AntiFire());
         register(new AntiWeb());
+        register(new Stealer());
+        register(new FastEat());
+        register(new AutoBuild());
+        register(new AutoCraft());
+        register(new Fucker());
+        register(new AutoMLG());
+        register(new AutoTrap());
+
+        // ── Exploit ───────────────────────────────────────────────
+        register(new AntiHunger());
+        register(new Plugins());
+        register(new ServerCrasher());
+        register(new ItemTeleport());
+        register(new LightningDetect());
 
         // ── Misc ──────────────────────────────────────────────────
         register(new AntiAFK());
@@ -139,11 +159,6 @@ public class ModuleManager {
         register(new StaffDetector());
         register(new AutoL());
         register(new MurderDetector());
-        register(new AntiHunger());
-        register(new Plugins());
-        register(new ServerCrasher());
-        register(new ItemTeleport());
-        register(new LightningDetect());
         register(new Blink());
         register(new FakeLag());
         register(new Disabler());
@@ -154,6 +169,7 @@ public class ModuleManager {
         register(new AutoRespawn());
         register(new NoRotate());
         register(new AutoQueue());
+        register(new AutoMinigame());
         register(new MiddleClickFriend());
         register(new FriendManager());
         register(new Macro());
@@ -163,6 +179,9 @@ public class ModuleManager {
         register(new FastRespawn());
         register(new NoWeather());
         register(new CapeChanger());
+        register(new Waypoints());
+        register(new AutoReconnect());
+        register(new StreamerMode());
 
         // ── Player ────────────────────────────────────────────────
         register(new AutoArmor());
@@ -179,7 +198,7 @@ public class ModuleManager {
     private void register(Module mod) { modules.add(mod); }
 
     public void init() {}
-    
+
     public void resetAll() {
         for (Module m : modules) {
             m.reset();

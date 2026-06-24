@@ -1,0 +1,73 @@
+package dev.iebgames.iebclient.ai;
+
+import java.util.Arrays;
+import java.util.List;
+
+public class AIConstants {
+    public static final List<String> ALL_MODELS = Arrays.asList(
+        // GROQ
+        "groq:qwen/qwen3-32b",
+        "groq:deepseek-r1-distill-llama-70b",
+        "groq:gemma2-9b-it",
+        "groq:groq/compound",
+        "groq:groq/compound-mini",
+        "groq:llama-3.1-8b-instant",
+        "groq:llama-3.3-70b-versatile",
+        "groq:meta-llama/llama-4-maverick-17b-128e-instruct",
+        "groq:meta-llama/llama-4-scout-17b-16e-instruct",
+        "groq:meta-llama/llama-guard-4-12b",
+        "groq:meta-llama/llama-prompt-guard-2-22m",
+        "groq:meta-llama/llama-prompt-guard-2-86m",
+        "groq:moonshotai/kimi-k2-instruct",
+        "groq:moonshotai/kimi-k2-instruct-0905",
+        "groq:openai/gpt-oss-120b",
+        
+        // OPENROUTER
+        "or:openrouter/polaris-alpha",
+        "or:nvidia/nemotron-nano-12b-v2-vl:free",
+        "or:minimax/minimax-m2:free",
+        "or:alibaba/tongyi-deepresearch-30b-a3b:free",
+        "or:meituan/longcat-flash-chat:free",
+        "or:nvidia/nemotron-nano-9b-v2:free",
+        "or:deepseek/deepseek-chat-v3.1:free",
+        "or:openai/gpt-oss-20b:free",
+        "or:z-ai/glm-4.5-air:free",
+        "or:qwen/qwen3-coder:free",
+        "or:moonshotai/kimi-k2:free",
+        "or:cognitivecomputations/dolphin-mistral-24b-venice-edition:free",
+        "or:google/gemma-3n-e2b-it:free",
+        "or:tngtech/deepseek-r1t2-chimera:free",
+        "or:mistralai/mistral-small-3.2-24b-instruct:free",
+        "or:deepseek/deepseek-r1-0528-qwen3-8b:free",
+        "or:deepseek/deepseek-r1-0528:free",
+        "or:google/gemma-3n-e4b-it:free",
+        "or:meta-llama/llama-3.3-8b-instruct:free",
+        "or:qwen/qwen3-4b:free",
+        "or:qwen/qwen3-30b-a3b:free",
+        "or:qwen/qwen3-14b:free",
+        "or:qwen/qwen3-235b-a22b:free",
+        "or:tngtech/deepseek-r1t-chimera:free",
+        "or:microsoft/mai-ds-r1:free",
+        "or:arliai/qwq-32b-arliai-rpr-v1:free",
+        "or:agentica-org/deepcoder-14b-preview:free",
+        "or:meta-llama/llama-4-maverick:free",
+        "or:meta-llama/llama-4-scout:free",
+        "or:qwen/qwen2.5-vl-32b-instruct:free",
+        "or:deepseek/deepseek-chat-v3-0324:free",
+        "or:mistralai/mistral-small-3.1-24b-instruct:free",
+        "or:google/gemma-3-4b-it:free",
+        "or:google/gemma-3-12b-it:free",
+        "or:google/gemma-3-27b-it:free",
+        "or:mistralai/mistral-small-24b-instruct-2501:free",
+        "or:deepseek/deepseek-r1-distill-llama-70b:free",
+        "or:deepseek/deepseek-r1:free",
+        "or:google/gemini-2.0-flash-exp:free",
+        "or:meta-llama/llama-3.3-70b-instruct:free",
+        "or:qwen/qwen-2.5-coder-32b-instruct:free",
+        "or:meta-llama/llama-3.2-3b-instruct:free",
+        "or:qwen/qwen-2.5-72b-instruct:free",
+        "or:nousresearch/hermes-3-llama-3.1-405b:free",
+        "or:mistralai/mistral-nemo:free",
+        "or:mistralai/mistral-7b-instruct:free"
+    );
+}

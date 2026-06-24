@@ -24,7 +24,7 @@ public class IEBClient {
 
     public static final String MODID   = "iebclient";
     public static final String NAME    = "IEB Client";
-    public static final String VERSION = "v6.2.30-FIXED.94.1.1";
+    public static final String VERSION = "6.4.0";
 
     @Mod.Instance
     public static IEBClient INSTANCE;
@@ -55,6 +55,7 @@ public class IEBClient {
 
     public void onClientInit() {
         scriptManager = new ScriptManager();
+        dev.iebgames.iebclient.ai.AIKeyManager.load();
         moduleManager.init();
         scriptManager.loadScripts();
         eventBus.register(this);
